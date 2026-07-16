@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PAWSTAY 寵在家｜不出門的五星級照顧——雙北到府寵物保姆</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Noto+Serif+TC:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F8F4ED;
+  --paper-deep:#F0E9DD;
+  --paper-card:#FDFBF7;
+  --ink:#332A20;
+  --ink-soft:#84796A;
+  --wood:#B08961;
+  --wood-deep:#8F6B47;
+  --wood-mist:#E4D5C0;
+  --clay:#C4703F;
+  --clay-deep:#A85B30;
+  --night:#2B2620;
+  --hairline:rgba(143,107,71,.22);
+  --serif:"Fraunces","Noto Serif TC",serif;
+  --sans:"Noto Sans TC",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.75;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:999;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .47 0 0 0 0 .36 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+::selection{background:var(--wood-mist);color:var(--ink)}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+.wrap{max-width:1120px;margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+
+/* ---------- type ---------- */
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.35;letter-spacing:.02em}
+.eyebrow{
+  font-family:var(--serif);font-size:12px;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--wood-deep);display:flex;align-items:center;gap:14px;margin-bottom:22px;
+}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--wood)}
+.sec-title{font-size:clamp(26px,3.4vw,38px);margin-bottom:16px}
+.sec-lead{color:var(--ink-soft);max-width:34em;font-size:15.5px}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--sans);font-weight:500;font-size:15px;letter-spacing:.06em;
+  padding:15px 32px;border-radius:999px;cursor:pointer;border:1px solid transparent;
+  transition:transform .25s ease,box-shadow .25s ease,background .25s ease,color .25s;
+}
+.btn-primary{background:var(--clay);color:#FDF9F3;box-shadow:0 10px 24px -12px rgba(168,91,48,.55)}
+.btn-primary:hover{background:var(--clay-deep);transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(168,91,48,.6)}
+.btn-ghost{border-color:var(--wood);color:var(--wood-deep);background:transparent}
+.btn-ghost:hover{background:var(--wood-mist);transform:translateY(-2px)}
+.btn .arr{transition:transform .25s}
+.btn:hover .arr{transform:translateX(4px)}
+
+/* ---------- nav ---------- */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(248,244,237,.85);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--hairline);
+}
+.nav-inner{max-width:1120px;margin:0 auto;padding:0 clamp(20px,5vw,48px);height:72px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--serif);font-size:20px;font-weight:600;letter-spacing:.08em;display:flex;align-items:baseline;gap:10px}
+.logo em{font-style:normal;font-family:var(--sans);font-size:12.5px;font-weight:500;color:var(--wood-deep);letter-spacing:.24em}
+.nav-links{display:flex;gap:34px;font-size:14px;letter-spacing:.1em}
+.nav-links a{color:var(--ink-soft);position:relative;padding:4px 0}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--wood-deep);transition:width .3s}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{font-size:13.5px;padding:10px 22px}
+@media(max-width:880px){.nav-links{display:none}}
+
+/* ---------- hero ---------- */
+.hero{min-height:100svh;display:flex;align-items:center;position:relative;padding:130px 0 80px}
+.hero-arc{
+  position:absolute;right:-14vw;top:8vh;width:56vw;max-width:760px;aspect-ratio:1;
+  border-radius:50%;background:radial-gradient(circle at 34% 32%,#F3E7D3 0%,#EBDCC2 46%,transparent 72%);
+  filter:blur(2px);z-index:0;
+}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:40px;align-items:center}
+.hero h1{font-size:clamp(34px,5vw,58px);font-weight:500;margin-bottom:26px}
+.hero h1 .accent{color:var(--wood-deep);font-style:italic}
+.hero-sub{color:var(--ink-soft);font-size:16.5px;max-width:30em;margin-bottom:40px}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:56px}
+.hero-note{display:flex;gap:26px;color:var(--ink-soft);font-size:13px;letter-spacing:.06em}
+.hero-note span{display:flex;align-items:center;gap:8px}
+.hero-note b{color:var(--wood-deep);font-weight:500}
+.hero-art{position:relative;display:flex;justify-content:center}
+.hero-art svg{width:min(100%,420px);height:auto}
+.tatezumi{
+  position:absolute;right:0;top:50%;transform:translateY(-50%);
+  writing-mode:vertical-rl;font-family:var(--serif);letter-spacing:.5em;
+  font-size:13px;color:var(--wood-deep);border-right:1px solid var(--hairline);padding-right:14px;
+}
+@media(max-width:880px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-art{order:-1}.hero-art svg{width:min(70%,300px)}
+  .tatezumi{display:none}
+}
+
+/* reveal animation */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
+.rv.in{opacity:1;transform:none}
+.hero .rv{transition-delay:calc(var(--d,0)*.12s)}
+
+/* ---------- trust bar ---------- */
+.trustbar{background:var(--paper-deep);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);max-width:1120px;margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+.trust-item{padding:38px 10px;text-align:center;position:relative}
+.trust-item+.trust-item::before{content:"";position:absolute;left:0;top:30%;height:40%;width:1px;background:var(--hairline)}
+.trust-num{font-family:var(--serif);font-size:clamp(24px,3vw,34px);font-weight:500;color:var(--ink)}
+.trust-num small{font-size:.55em;color:var(--wood-deep)}
+.trust-label{font-size:12.5px;letter-spacing:.14em;color:var(--ink-soft);margin-top:4px}
+@media(max-width:720px){.trust-grid{grid-template-columns:repeat(2,1fr)}.trust-item:nth-child(3)::before{display:none}}
+
+/* ---------- sections ---------- */
+section{padding:clamp(72px,10vw,120px) 0}
+.sec-head{margin-bottom:clamp(40px,6vw,64px)}
+
+/* species cards */
+.species-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.species-card{
+  background:var(--paper-card);border:1px solid var(--hairline);border-radius:22px;
+  padding:40px 32px 36px;display:flex;flex-direction:column;gap:14px;
+  transition:transform .3s ease,border-color .3s,box-shadow .3s;
+}
+.species-card:hover{transform:translateY(-6px);border-color:var(--wood);box-shadow:0 24px 44px -28px rgba(143,107,71,.45)}
+.species-card .glyph{font-size:34px;line-height:1}
+.species-card h3{font-size:21px}
+.species-card p{color:var(--ink-soft);font-size:14.5px;flex:1}
+.species-card .more{font-size:13px;letter-spacing:.14em;color:var(--wood-deep)}
+@media(max-width:820px){.species-grid{grid-template-columns:1fr}}
+
+/* ---------- tiers ---------- */
+#tiers{background:var(--paper-card);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
+.tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+.tier{
+  border:1px solid var(--hairline);border-radius:24px;background:var(--paper);
+  padding:38px 32px;display:flex;flex-direction:column;position:relative;
+  transition:transform .3s,box-shadow .3s;
+}
+.tier:hover{transform:translateY(-5px);box-shadow:0 26px 48px -30px rgba(143,107,71,.5)}
+.tier.featured{background:var(--night);color:#EFE7DA;border-color:var(--night);transform:scale(1.03)}
+.tier.featured:hover{transform:scale(1.03) translateY(-5px)}
+.tier .pop{
+  position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+  background:var(--clay);color:#FDF9F3;font-size:11.5px;letter-spacing:.2em;
+  padding:5px 16px;border-radius:999px;white-space:nowrap;
+}
+.tier-name{font-family:var(--serif);font-size:13px;letter-spacing:.3em;color:var(--wood-deep);margin-bottom:6px}
+.tier.featured .tier-name{color:var(--wood-mist)}
+.tier h3{font-size:24px;margin-bottom:4px}
+.tier .dur{font-size:13px;color:var(--ink-soft);margin-bottom:18px}
+.tier.featured .dur{color:#B9AC97}
+.tier .price{font-family:var(--serif);font-size:34px;margin-bottom:24px}
+.tier .price small{font-size:14px;font-family:var(--sans);color:var(--ink-soft);margin-left:4px}
+.tier.featured .price small{color:#B9AC97}
+.tier ul{list-style:none;flex:1;margin-bottom:28px}
+.tier li{padding:9px 0;font-size:14px;border-bottom:1px dashed var(--hairline);display:flex;gap:10px;align-items:baseline}
+.tier li::before{content:"·";color:var(--wood);font-weight:700}
+.tier li.hl{color:var(--wood-deep);font-weight:500}
+.tier.featured li{border-color:rgba(228,213,192,.18)}
+.tier.featured li.hl{color:#E0C9A8}
+.badge{display:inline-block;background:var(--wood-mist);color:var(--wood-deep);font-size:11px;letter-spacing:.1em;padding:2px 10px;border-radius:999px;margin-left:6px;vertical-align:1px}
+.tier.featured .badge{background:rgba(228,213,192,.16);color:#E0C9A8}
+.tier .btn{justify-content:center}
+@media(max-width:880px){.tier-grid{grid-template-columns:1fr}.tier.featured{transform:none}}
+
+/* ---------- first visit ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;counter-reset:st}
+.step{background:var(--paper-card);border:1px solid var(--hairline);border-radius:22px;padding:36px 30px;counter-increment:st;position:relative}
+.step::before{
+  content:"0" counter(st);font-family:var(--serif);font-size:44px;font-weight:300;
+  color:var(--wood-mist);position:absolute;top:22px;right:26px;line-height:1;
+}
+.step h3{font-size:18px;margin-bottom:10px;max-width:8em}
+.step p{font-size:14px;color:var(--ink-soft)}
+.guarantee{
+  margin-top:30px;display:flex;align-items:center;gap:14px;justify-content:center;
+  font-size:14.5px;color:var(--wood-deep);letter-spacing:.06em;
+}
+.guarantee::before,.guarantee::after{content:"";height:1px;width:44px;background:var(--wood)}
+@media(max-width:820px){.steps{grid-template-columns:1fr}}
+
+/* ---------- app (dark band) ---------- */
+#app{background:var(--night);color:#EFE7DA}
+#app .eyebrow{color:#CDB58F}
+#app .eyebrow::before{background:#CDB58F}
+#app .sec-lead{color:#B9AC97}
+.app-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(36px,6vw,80px);align-items:center}
+.phone{
+  width:min(280px,80%);margin:0 auto;aspect-ratio:9/18.6;border-radius:38px;
+  background:#191512;border:1px solid rgba(228,213,192,.25);padding:12px;
+  box-shadow:0 40px 80px -40px rgba(0,0,0,.8);position:relative;
+}
+.phone-screen{
+  width:100%;height:100%;border-radius:28px;overflow:hidden;position:relative;
+  background:linear-gradient(160deg,#4A3B2C 0%,#33291F 55%,#241D16 100%);
+  display:flex;flex-direction:column;
+}
+.cam-view{flex:1;position:relative;display:flex;align-items:center;justify-content:center}
+.cam-view svg{width:62%;opacity:.9}
+.live-tag{
+  position:absolute;top:14px;left:14px;background:rgba(196,64,48,.92);color:#fff;
+  font-size:10px;letter-spacing:.2em;padding:4px 10px;border-radius:6px;display:flex;align-items:center;gap:6px;
+}
+.live-dot{width:6px;height:6px;border-radius:50%;background:#fff;animation:blink 1.4s infinite}
+@keyframes blink{50%{opacity:.25}}
+.cam-time{position:absolute;top:16px;right:14px;font-size:10px;color:rgba(255,255,255,.7);letter-spacing:.1em}
+.cam-bar{background:rgba(0,0,0,.35);padding:14px 16px;font-size:11px;color:#D8CBB4;display:flex;justify-content:space-between;letter-spacing:.08em}
+.app-feats{display:flex;flex-direction:column;gap:8px}
+.feat{
+  border:1px solid rgba(228,213,192,.16);border-radius:18px;padding:24px 26px;
+  transition:background .3s,border-color .3s;
+}
+.feat:hover{background:rgba(228,213,192,.06);border-color:rgba(228,213,192,.35)}
+.feat h3{font-size:18px;margin-bottom:6px;color:#F3EADC;display:flex;align-items:center;gap:12px}
+.feat h3 .tag{font-size:10.5px;font-family:var(--sans);letter-spacing:.2em;color:#E0C9A8;border:1px solid rgba(224,201,168,.4);padding:3px 10px;border-radius:999px}
+.feat p{font-size:14px;color:#B9AC97}
+@media(max-width:820px){.app-grid{grid-template-columns:1fr}}
+
+/* ---------- sitters ---------- */
+.sitter-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.sitter{
+  background:var(--paper-card);border:1px solid var(--hairline);border-radius:22px;overflow:hidden;
+  transition:transform .3s,box-shadow .3s;
+}
+.sitter:hover{transform:translateY(-6px);box-shadow:0 24px 44px -28px rgba(143,107,71,.45)}
+.sitter-photo{
+  aspect-ratio:4/3.1;display:flex;align-items:flex-end;justify-content:center;
+  background:linear-gradient(180deg,var(--paper-deep),var(--wood-mist));
+}
+.sitter-photo svg{width:52%;display:block}
+.sitter-body{padding:26px 26px 28px}
+.sitter h3{font-size:19px;display:flex;align-items:baseline;gap:10px}
+.sitter h3 small{font-family:var(--sans);font-size:12px;color:var(--ink-soft);letter-spacing:.1em}
+.sitter .cert{font-size:12.5px;color:var(--wood-deep);margin:6px 0 12px;letter-spacing:.04em}
+.sitter p{font-size:13.5px;color:var(--ink-soft);margin-bottom:16px}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tags span{font-size:11.5px;letter-spacing:.08em;color:var(--wood-deep);background:var(--wood-mist);border-radius:999px;padding:4px 12px}
+.sitter-note{text-align:center;margin-top:36px;color:var(--ink-soft);font-size:13.5px;letter-spacing:.08em}
+@media(max-width:820px){.sitter-grid{grid-template-columns:1fr}}
+
+/* ---------- trust ---------- */
+#trust{background:var(--paper-deep);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
+.trust3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.tcard{background:var(--paper-card);border:1px solid var(--hairline);border-radius:22px;padding:36px 30px}
+.tcard .glyph{font-size:26px;margin-bottom:16px;display:block}
+.tcard h3{font-size:18px;margin-bottom:10px}
+.tcard p{font-size:14px;color:var(--ink-soft);margin-bottom:14px}
+.tcard a{font-size:13px;letter-spacing:.12em;color:var(--wood-deep);border-bottom:1px solid var(--wood);padding-bottom:2px}
+@media(max-width:820px){.trust3{grid-template-columns:1fr}}
+
+/* ---------- membership ---------- */
+.mem-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:900px;margin:0 auto}
+.mem{border:1px solid var(--hairline);border-radius:24px;padding:40px 36px;background:var(--paper-card)}
+.mem.club{background:linear-gradient(165deg,#FDFBF7 0%,#F3E9D8 100%);border-color:var(--wood)}
+.mem .kind{font-size:12px;letter-spacing:.28em;color:var(--wood-deep);font-family:var(--serif);margin-bottom:8px}
+.mem h3{font-size:23px;margin-bottom:4px}
+.mem .fee{font-size:14px;color:var(--ink-soft);margin-bottom:22px}
+.mem ul{list-style:none;margin-bottom:28px}
+.mem li{padding:8px 0;font-size:14px;display:flex;gap:10px;border-bottom:1px dashed var(--hairline)}
+.mem li::before{content:"○";color:var(--wood);font-size:11px;line-height:2.1}
+.mem.club li::before{content:"●"}
+@media(max-width:760px){.mem-grid{grid-template-columns:1fr}}
+
+/* ---------- final cta ---------- */
+.final{text-align:center;padding-bottom:clamp(80px,12vw,140px)}
+.final h2{font-size:clamp(30px,4.6vw,50px);margin-bottom:18px}
+.final p{color:var(--ink-soft);margin-bottom:38px}
+.paw-trail{display:flex;justify-content:center;gap:18px;margin-bottom:34px;font-size:15px;color:var(--wood)}
+.paw-trail span{opacity:0;animation:pawIn .5s forwards}
+.paw-trail span:nth-child(2){animation-delay:.18s;transform:rotate(14deg)}
+.paw-trail span:nth-child(3){animation-delay:.36s}
+.paw-trail span:nth-child(4){animation-delay:.54s;transform:rotate(-12deg)}
+.paw-trail span:nth-child(5){animation-delay:.72s}
+@keyframes pawIn{from{opacity:0;translate:0 8px}to{opacity:.85;translate:0 0}}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--hairline);background:var(--paper-deep);padding:56px 0 40px;font-size:13px;color:var(--ink-soft)}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;margin-bottom:44px}
+.foot-grid h4{font-family:var(--serif);font-size:14px;color:var(--ink);letter-spacing:.14em;margin-bottom:14px}
+.foot-grid a{display:block;padding:4px 0;transition:color .2s}
+.foot-grid a:hover{color:var(--wood-deep)}
+.foot-brand p{max-width:22em;margin-top:10px}
+.foot-base{border-top:1px solid var(--hairline);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12px;letter-spacing:.06em}
+@media(max-width:820px){.foot-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="#top">PAWSTAY <em>寵在家</em></a>
+    <div class="nav-links">
+      <a href="#services">服務項目</a>
+      <a href="#first">首次體驗</a>
+      <a href="#app">智慧連線</a>
+      <a href="#sitters">保姆團隊</a>
+      <a href="#trust">信任與保障</a>
+      <a href="#membership">會員登入</a>
+    </div>
+    <a class="btn btn-primary nav-cta" href="pet-intake.html">預約首次照顧</a>
+  </div>
+</nav>
+
+<!-- ① HERO -->
+<header class="hero" id="top">
+  <div class="hero-arc"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow rv" style="--d:0">Taipei · In-home Pet Care</p>
+      <h1 class="rv" style="--d:1">你不在家的日子，<br>牠依然<span class="accent">被好好愛著</span>。</h1>
+      <p class="hero-sub rv" style="--d:2">PAWSTAY 寵在家——到府照顧・陪伴散步・即時影像回傳。貓、狗與特殊寵物的專屬保姆，現正服務台北市・新北市。</p>
+      <div class="hero-ctas rv" style="--d:3">
+        <a class="btn btn-primary" href="pet-intake.html">NT$690 預約首次體驗 <span class="arr">→</span></a>
+        <a class="btn btn-ghost" href="#tiers">查看服務等級</a>
+      </div>
+      <div class="hero-note rv" style="--d:4">
+        <span><b>◍</b> 保姆 100% 完訓認證</span>
+        <span><b>◍</b> NT$300 萬責任保險</span>
+        <span><b>◍</b> 首次不滿意全退</span>
+      </div>
+    </div>
+    <div class="hero-art rv" style="--d:2">
+      <!-- 蜷睡的貓：單線插畫 -->
+      <svg viewBox="0 0 400 340" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="蜷睡的貓咪插畫">
+        <ellipse cx="200" cy="296" rx="150" ry="16" fill="#EBDCC2"/>
+        <path d="M96 230c-14-40 2-108 58-138 20-11 34-14 56-14 66 0 112 46 112 112 0 24-8 44-24 58-30 26-84 30-124 22" stroke="#8F6B47" stroke-width="5" stroke-linecap="round"/>
+        <path d="M150 92l-10-34 34 16" stroke="#8F6B47" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M216 80l14-30 18 34" stroke="#8F6B47" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M172 132c0 5 3 8 8 8M232 128c0 5 3 8 8 8" stroke="#8F6B47" stroke-width="5" stroke-linecap="round"/>
+        <path d="M198 158c4 6 12 6 16 0" stroke="#8F6B47" stroke-width="5" stroke-linecap="round"/>
+        <path d="M96 230c-6 26 6 44 30 44 52 0 26-38 74-38" stroke="#8F6B47" stroke-width="5" stroke-linecap="round"/>
+        <path d="M330 208c26 10 30 42 6 56-16 9-34 6-46-6" stroke="#B08961" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="330" cy="110" r="4" fill="#C4703F"/>
+        <circle cx="352" cy="88" r="3" fill="#C4703F" opacity=".7"/>
+        <circle cx="344" cy="132" r="2.5" fill="#C4703F" opacity=".5"/>
+      </svg>
+      <span class="tatezumi">安心・在宅・陪伴</span>
+    </div>
+  </div>
+</header>
+
+<!-- ② TRUST BAR -->
+<div class="trustbar">
+  <div class="trust-grid">
+    <div class="trust-item rv"><div class="trust-num">1,200<small>+</small></div><div class="trust-label">次照顧完成</div></div>
+    <div class="trust-item rv"><div class="trust-num">100<small>%</small></div><div class="trust-label">保姆完訓認證</div></div>
+    <div class="trust-item rv"><div class="trust-num">300<small>萬</small></div><div class="trust-label">責任保險（NT$）</div></div>
+    <div class="trust-item rv"><div class="trust-num">24<small>hr</small></div><div class="trust-label">內回覆預約</div></div>
+  </div>
+</div>
+
+<!-- ③ SPECIES -->
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Who We Care For</p>
+      <h2 class="sec-title">三種家人，三種照顧方式</h2>
+      <p class="sec-lead">貓有貓的節奏，狗有狗的精力，異寵有牠的物種習性。我們不套用同一套流程——照顧計畫從牠是誰開始。</p>
+    </div>
+    <div class="species-grid">
+      <a class="species-card rv" href="#tiers">
+        <span class="glyph">🐈</span>
+        <h3>貓咪照顧</h3>
+        <p>不打擾的溫柔——在牠最安心的領地照顧牠。餵食、清砂、陪玩與觀察，離開前把一切歸位。</p>
+        <span class="more">了解貓咪服務 →</span>
+      </a>
+      <a class="species-card rv" href="#tiers">
+        <span class="glyph">🐕</span>
+        <h3>狗狗照顧與散步</h3>
+        <p>散步、陪玩、規律作息，精力與情緒都被接住。外出全程 GPS 軌跡，你隨時知道牠走到哪。</p>
+        <span class="more">了解狗狗服務 →</span>
+      </a>
+      <a class="species-card rv" href="#tiers">
+        <span class="glyph">🦜</span>
+        <h3>特殊寵物照顧</h3>
+        <p>兔、鼠、鳥、爬蟲——溫溼度、飲食與環境細節，照著牠的物種習性來，不憑感覺。</p>
+        <span class="more">了解異寵服務 →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ④ TIERS -->
+<section id="tiers">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Service Tiers</p>
+      <h2 class="sec-title">服務等級，清清楚楚</h2>
+      <p class="sec-lead">按次計費、免費註冊即可預約。每一級包含什麼、多少錢，我們先寫清楚。</p>
+    </div>
+    <div class="tier-grid">
+      <div class="tier rv">
+        <div class="tier-name">LITE</div>
+        <h3>輕心照顧</h3>
+        <div class="dur">30 分鐘／次・適合日常短暫外出</div>
+        <div class="price">NT$450<small>起／次</small></div>
+        <ul>
+          <li>餵食、換水、清理砂盆／籠舍</li>
+          <li>基礎陪伴與狀態觀察</li>
+          <li>圖文照顧日誌回報</li>
+          <li>離場安全檢查清單</li>
+        </ul>
+        <a class="btn btn-ghost" href="pet-intake.html">以此等級預約</a>
+      </div>
+      <div class="tier featured rv">
+        <div class="pop">最多人選擇</div>
+        <div class="tier-name">PLUS</div>
+        <h3>安心照顧</h3>
+        <div class="dur">60 分鐘／次・照顧＋陪伴一次到位</div>
+        <div class="price">NT$780<small>起／次</small></div>
+        <ul>
+          <li>含 LITE 全部項目</li>
+          <li>陪玩互動／狗狗散步 30 分鐘</li>
+          <li class="hl">到府即架即時影像 Live Feed</li>
+          <li class="hl">散步全程 GPS 定位追蹤</li>
+          <li>餵藥・保健品（口服）</li>
+        </ul>
+        <a class="btn btn-primary" href="pet-intake.html">以此等級預約</a>
+      </div>
+      <div class="tier rv">
+        <div class="tier-name">SIGNATURE</div>
+        <h3>傾心照顧</h3>
+        <div class="dur">90 分鐘起／次・長差旅與高需求照護</div>
+        <div class="price">NT$1,280<small>起／次</small></div>
+        <ul>
+          <li>含 PLUS 全部項目</li>
+          <li class="hl">到府環境安全評估 <span class="badge">特色</span></li>
+          <li class="hl">專屬監視器安裝 <span class="badge">特色</span></li>
+          <li>特殊照護（皮下輸液・傷口護理）</li>
+          <li>客製照顧報告與行為紀錄</li>
+        </ul>
+        <a class="btn btn-ghost" href="pet-intake.html">以此等級預約</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑤ FIRST VISIT -->
+<section id="first">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">First Visit</p>
+      <h2 class="sec-title">第一次，我們把門檻放到最低</h2>
+      <p class="sec-lead">讓陌生人進家門照顧家人，本來就該慎重。所以第一次，先互相認識。</p>
+    </div>
+    <div class="steps">
+      <div class="step rv">
+        <h3>建立寵物檔案</h3>
+        <p>5 分鐘完成多步驟問卷——牠的個性、健康、地雷與習慣，讓保姆到府前就認識牠。</p>
+      </div>
+      <div class="step rv">
+        <h3>免費 15 分鐘視訊認識</h3>
+        <p>與您配對的保姆先視訊聊聊，確認彼此合拍，有任何疑慮都可以換人或喊停。</p>
+      </div>
+      <div class="step rv">
+        <h3>NT$690 首次體驗</h3>
+        <p>含 60 分鐘照顧＋到府環境安全快評。體驗後不滿意，首次費用全額退還。</p>
+      </div>
+    </div>
+    <p class="guarantee rv">首次體驗不滿意，7 天內不需理由全額退費</p>
+  </div>
+</section>
+
+<!-- ⑥ APP -->
+<section id="app">
+  <div class="wrap app-grid">
+    <div class="rv">
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="cam-view">
+            <span class="live-tag"><span class="live-dot"></span>LIVE</span>
+            <span class="cam-time">14:22:07</span>
+            <svg viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M40 118c-8-22 2-58 32-74 11-6 18-8 30-8 36 0 61 25 61 61 0 13-4 24-13 31-16 14-45 17-67 12" stroke="#E0C9A8" stroke-width="3.5" stroke-linecap="round"/>
+              <path d="M69 44l-5-18 18 9M105 38l8-16 10 18" stroke="#E0C9A8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M81 66c0 3 2 4 4 4M113 64c0 3 2 4 4 4M95 80c2 3 7 3 9 0" stroke="#E0C9A8" stroke-width="3.5" stroke-linecap="round"/>
+              <path d="M40 118c-3 14 3 24 16 24 28 0 14-21 40-21" stroke="#E0C9A8" stroke-width="3.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="cam-bar"><span>客廳・攝影機 01</span><span>保姆 Yuki 服務中</span></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="sec-head rv" style="margin-bottom:34px">
+        <p class="eyebrow">Smart App</p>
+        <h2 class="sec-title">牠的每一刻，都在你手心</h2>
+        <p class="sec-lead">PAWSTAY 專屬 APP 整合現有智慧硬體——保姆到府的第一件事，就是讓你看得見。</p>
+      </div>
+      <div class="app-feats">
+        <div class="feat rv">
+          <h3>即時影像 Live Feed <span class="tag">到府即開</span></h3>
+          <p>保姆抵達後即刻架設攝影機並回傳即時畫面。服務期間你隨時打開 APP，就像自己在家。</p>
+        </div>
+        <div class="feat rv">
+          <h3>散步 GPS 定位追蹤 <span class="tag">全程軌跡</span></h3>
+          <p>狗狗外出配戴 GPS 追蹤器，路線、距離、停留點即時上傳——牠走的每一步都有紀錄。</p>
+        </div>
+        <div class="feat rv">
+          <h3>照顧日誌自動整理 <span class="tag">服務後回顧</span></h3>
+          <p>餵食紀錄、照片、影像片段與保姆手記，每次服務結束自動整理成一篇日誌，永久保存。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑦ SITTERS -->
+<section id="sitters">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Our Sitters</p>
+      <h2 class="sec-title">每一位保姆，都經過我們自己也放心的訓練</h2>
+      <p class="sec-lead">60 小時完訓、良民證查核、實名認證、定期回訓——這是進入 PAWSTAY 的最低標準。</p>
+    </div>
+    <div class="sitter-grid">
+      <div class="sitter rv">
+        <div class="sitter-photo">
+          <svg viewBox="0 0 120 100" fill="none"><circle cx="60" cy="46" r="22" stroke="#8F6B47" stroke-width="3.5"/><path d="M24 100c4-22 18-32 36-32s32 10 36 32" stroke="#8F6B47" stroke-width="3.5" stroke-linecap="round"/><path d="M48 44c0 2 1 3 3 3M69 44c0 2 1 3 3 3" stroke="#8F6B47" stroke-width="3" stroke-linecap="round"/><path d="M54 55c3 3 9 3 12 0" stroke="#8F6B47" stroke-width="3" stroke-linecap="round"/></svg>
+        </div>
+        <div class="sitter-body">
+          <h3>Yuki 林 <small>認證編號 PS-0102</small></h3>
+          <div class="cert">寵物照護員認證・高齡貓照護專修｜年資 6 年</div>
+          <p>曾任動物醫院助理，擅長慢性病貓咪的餵藥與皮下輸液，相信「安靜的陪伴是貓的語言」。</p>
+          <div class="tags"><span>高齡照護</span><span>餵藥・輸液</span><span>膽小貓友善</span></div>
+        </div>
+      </div>
+      <div class="sitter rv">
+        <div class="sitter-photo">
+          <svg viewBox="0 0 120 100" fill="none"><circle cx="60" cy="46" r="22" stroke="#8F6B47" stroke-width="3.5"/><path d="M24 100c4-22 18-32 36-32s32 10 36 32" stroke="#8F6B47" stroke-width="3.5" stroke-linecap="round"/><path d="M38 32c6-8 14-12 22-12s16 4 22 12" stroke="#8F6B47" stroke-width="3.5" stroke-linecap="round"/><path d="M48 46c0 2 1 3 3 3M69 46c0 2 1 3 3 3M54 56c3 3 9 3 12 0" stroke="#8F6B47" stroke-width="3" stroke-linecap="round"/></svg>
+        </div>
+        <div class="sitter-body">
+          <h3>阿凱 <small>認證編號 PS-0087</small></h3>
+          <div class="cert">犬隻行為訓練師（CPDT 研習）｜年資 8 年</div>
+          <p>中大型犬與高活動量犬的散步專家，熟悉牽繩禮儀與分離焦慮安撫，被狗狗們視為自己人。</p>
+          <div class="tags"><span>大型犬</span><span>行為訓練</span><span>分離焦慮</span></div>
+        </div>
+      </div>
+      <div class="sitter rv">
+        <div class="sitter-photo">
+          <svg viewBox="0 0 120 100" fill="none"><circle cx="60" cy="46" r="22" stroke="#8F6B47" stroke-width="3.5"/><path d="M24 100c4-22 18-32 36-32s32 10 36 32" stroke="#8F6B47" stroke-width="3.5" stroke-linecap="round"/><path d="M42 28c0-6 8-10 18-10s18 4 18 10" stroke="#8F6B47" stroke-width="3.5" stroke-linecap="round"/><path d="M48 46c0 2 1 3 3 3M69 46c0 2 1 3 3 3M54 56c3 3 9 3 12 0" stroke="#8F6B47" stroke-width="3" stroke-linecap="round"/></svg>
+        </div>
+        <div class="sitter-body">
+          <h3>小敏 <small>認證編號 PS-0121</small></h3>
+          <div class="cert">特寵照護專修（兔・鼠・爬蟲）｜年資 5 年</div>
+          <p>異寵社群資深照護者，熟悉溫溼度控管與物種食性，家裡住著兩隻垂耳兔和一隻守宮。</p>
+          <div class="tags"><span>兔・天竺鼠</span><span>爬蟲類</span><span>環境控管</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="sitter-note rv">預約確認後，你會收到當日保姆的個人頁連結——到府的是誰、受過什麼訓練，一目瞭然。</p>
+  </div>
+</section>
+
+<!-- ⑧ TRUST -->
+<section id="trust">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Trust &amp; Protection</p>
+      <h2 class="sec-title">把風險先想好，是我們的工作</h2>
+      <p class="sec-lead">我們不把條款藏在小字裡。哪些情況我們負責、怎麼賠、哪些需要您先告知——都寫在明處。</p>
+    </div>
+    <div class="trust3">
+      <div class="tcard rv">
+        <span class="glyph">⛨</span>
+        <h3>NT$300 萬責任保險</h3>
+        <p>每一次服務皆在保險保障內，涵蓋寵物意外醫療與居家財物。理賠流程與時限公開透明。</p>
+        <a href="#">查看保險制度 →</a>
+      </div>
+      <div class="tcard rv">
+        <span class="glyph">✎</span>
+        <h3>服務契約與標準流程</h3>
+        <p>每筆預約皆簽訂電子服務契約，進出打卡、鑰匙保管、緊急就醫授權，全數依 SOP 執行。</p>
+        <a href="#">閱讀服務條款 →</a>
+      </div>
+      <div class="tcard rv">
+        <span class="glyph">☰</span>
+        <h3>誠實的風險說明</h3>
+        <p>我們用表格寫清楚：哪些情況由我們承擔、哪些屬天然風險、哪些需飼主事先告知。</p>
+        <a href="#">風險與免責說明 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑨ MEMBERSHIP -->
+<section id="membership">
+  <div class="wrap">
+    <div class="sec-head rv" style="text-align:center;margin-left:auto;margin-right:auto">
+      <p class="eyebrow" style="justify-content:center">Membership</p>
+      <h2 class="sec-title">免費開始，值得再深入</h2>
+      <p class="sec-lead" style="margin:0 auto">註冊完全免費、按次付費即可使用全部服務。需要更高頻率照顧的家庭，CARE CLUB 會員給你固定保姆與優先權。</p>
+    </div>
+    <div class="mem-grid">
+      <div class="mem rv">
+        <div class="kind">FREE MEMBER</div>
+        <h3>免費會員</h3>
+        <div class="fee">NT$0・按次計費</div>
+        <ul>
+          <li>建立完整寵物檔案</li>
+          <li>線上預約全部服務等級</li>
+          <li>照顧日誌與服務紀錄保存</li>
+          <li>APP 即時影像・GPS（服務期間）</li>
+        </ul>
+        <a class="btn btn-ghost" href="pet-intake.html" style="width:100%;justify-content:center">免費註冊</a>
+      </div>
+      <div class="mem club rv">
+        <div class="kind">CARE CLUB</div>
+        <h3>月費會員</h3>
+        <div class="fee">NT$399／月・服務另按次計費（會員價 92 折）</div>
+        <ul>
+          <li>專屬固定保姆，不用每次重新適應</li>
+          <li>連假・過年優先預約權</li>
+          <li>專屬監視器免費安裝與保管</li>
+          <li>每月寵物狀態紀錄摘要</li>
+          <li>專人客服通道（LINE 直通）</li>
+        </ul>
+        <a class="btn btn-primary" href="pet-intake.html" style="width:100%;justify-content:center">了解 CARE CLUB</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑩ FINAL CTA -->
+<section class="final">
+  <div class="wrap">
+    <div class="paw-trail rv"><span>🐾</span><span>🐾</span><span>🐾</span><span>🐾</span><span>🐾</span></div>
+    <h2 class="rv">出門的時候，<br>把家交給我們。</h2>
+    <p class="rv">從一份寵物檔案開始——讓我們在見到牠之前，先認識牠。</p>
+    <a class="btn btn-primary rv" href="pet-intake.html" style="font-size:16px;padding:18px 44px">開始建立寵物檔案 <span class="arr">→</span></a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="#top">PAWSTAY <em>寵在家</em></a>
+        <p>不出門的五星級照顧。到府寵物保姆・會員制服務平台，現正服務台北市・新北市，其他地區陸續開放中。</p>
+      </div>
+      <div>
+        <h4>服務</h4>
+        <a href="#services">貓咪照顧</a>
+        <a href="#services">狗狗照顧與散步</a>
+        <a href="#services">特殊寵物照顧</a>
+        <a href="#tiers">環境安全評估</a>
+        <a href="#tiers">專屬監視器安裝</a>
+      </div>
+      <div>
+        <h4>探索</h4>
+        <a href="#first">首次體驗</a>
+        <a href="#app">智慧連線 APP</a>
+        <a href="#sitters">保姆團隊</a>
+        <a href="#membership">CARE CLUB 會員</a>
+        <a href="pet-intake.html">寵物檔案</a>
+      </div>
+      <div>
+        <h4>信任</h4>
+        <a href="#trust">保險制度</a>
+        <a href="#trust">服務條款</a>
+        <a href="#trust">風險與免責聲明</a>
+        <a href="#trust">隱私權政策</a>
+        <a href="#trust">聯絡我們</a>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>© 2026 PAWSTAY 寵在家（原型示意）</span>
+      <span>服務地區：台北市・新北市｜其他地區 <a href="#" style="border-bottom:1px solid var(--wood)">登記開放通知</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+},{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

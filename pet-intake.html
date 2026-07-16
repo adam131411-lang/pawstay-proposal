@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>建立寵物檔案｜PAWSTAY 寵在家</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Noto+Serif+TC:wght@400;500;600&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F8F4ED; --paper-deep:#F0E9DD; --paper-card:#FDFBF7;
+  --ink:#332A20; --ink-soft:#84796A;
+  --wood:#B08961; --wood-deep:#8F6B47; --wood-mist:#E4D5C0;
+  --clay:#C4703F; --clay-deep:#A85B30;
+  --hairline:rgba(143,107,71,.22);
+  --serif:"Fraunces","Noto Serif TC",serif; --sans:"Noto Sans TC",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:999;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .47 0 0 0 0 .36 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:.02em}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(248,244,237,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--hairline)}
+.nav-inner{max-width:820px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--serif);font-size:18px;font-weight:600;letter-spacing:.08em}
+.logo em{font-style:normal;font-size:11.5px;font-family:var(--sans);color:var(--wood-deep);letter-spacing:.24em;margin-left:8px}
+.nav-back{font-size:13px;color:var(--ink-soft);letter-spacing:.08em}
+.nav-back:hover{color:var(--wood-deep)}
+
+.shell{max-width:820px;margin:0 auto;padding:112px 24px 90px}
+.intro{text-align:center;margin-bottom:40px}
+.intro .eyebrow{font-family:var(--serif);font-size:11.5px;letter-spacing:.32em;color:var(--wood-deep);text-transform:uppercase;margin-bottom:12px}
+.intro h1{font-size:clamp(26px,4vw,34px);margin-bottom:10px}
+.intro p{color:var(--ink-soft);font-size:14.5px}
+
+/* progress */
+.progress{display:flex;align-items:center;gap:0;margin-bottom:44px}
+.pstep{flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;position:relative}
+.pstep::before{content:"";position:absolute;top:14px;left:-50%;width:100%;height:1.5px;background:var(--wood-mist);z-index:0}
+.pstep:first-child::before{display:none}
+.pstep .dot{
+  width:29px;height:29px;border-radius:50%;background:var(--paper);border:1.5px solid var(--wood-mist);
+  display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--ink-soft);
+  position:relative;z-index:1;transition:all .3s;font-family:var(--serif);
+}
+.pstep .plabel{font-size:11px;letter-spacing:.1em;color:var(--ink-soft);white-space:nowrap}
+.pstep.active .dot{background:var(--clay);border-color:var(--clay);color:#FDF9F3;box-shadow:0 6px 14px -6px rgba(168,91,48,.6)}
+.pstep.active .plabel{color:var(--clay-deep);font-weight:500}
+.pstep.done .dot{background:var(--wood-deep);border-color:var(--wood-deep);color:#FDF9F3}
+.pstep.done::before,.pstep.active::before{background:var(--wood-deep)}
+@media(max-width:640px){.pstep .plabel{display:none}}
+
+/* card */
+.card{
+  background:var(--paper-card);border:1px solid var(--hairline);border-radius:26px;
+  padding:clamp(30px,5vw,50px);box-shadow:0 30px 60px -46px rgba(143,107,71,.5);
+}
+.step-panel{display:none;animation:fadeUp .45s ease}
+.step-panel.on{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.step-panel h2{font-size:22px;margin-bottom:6px}
+.step-panel .hint{color:var(--ink-soft);font-size:13.5px;margin-bottom:30px}
+
+.q{margin-bottom:28px}
+.q>label,.q>.qt{display:block;font-weight:500;font-size:14.5px;margin-bottom:12px;letter-spacing:.03em}
+.q .opt-note{font-weight:400;color:var(--ink-soft);font-size:12.5px;margin-left:6px}
+
+/* choice chips */
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chips label{
+  border:1px solid var(--hairline);border-radius:999px;padding:9px 20px;font-size:13.5px;
+  cursor:pointer;background:var(--paper);transition:all .2s;user-select:none;letter-spacing:.03em;
+}
+.chips input{display:none}
+.chips label:hover{border-color:var(--wood)}
+.chips input:checked+span{color:#FDF9F3}
+.chips label:has(input:checked){background:var(--wood-deep);border-color:var(--wood-deep);color:#FDF9F3}
+
+/* big species cards */
+.big-choice{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.big-choice label{
+  border:1px solid var(--hairline);border-radius:20px;padding:28px 16px;text-align:center;cursor:pointer;
+  background:var(--paper);transition:all .25s;display:flex;flex-direction:column;gap:8px;align-items:center;
+}
+.big-choice label:hover{border-color:var(--wood);transform:translateY(-3px)}
+.big-choice input{display:none}
+.big-choice .glyph{font-size:34px;line-height:1}
+.big-choice .name{font-weight:500;font-size:15px}
+.big-choice .desc{font-size:11.5px;color:var(--ink-soft);letter-spacing:.04em}
+.big-choice label:has(input:checked){background:var(--wood-deep);border-color:var(--wood-deep)}
+.big-choice label:has(input:checked) .name{color:#FDF9F3}
+.big-choice label:has(input:checked) .desc{color:#E0D2BC}
+@media(max-width:560px){.big-choice{grid-template-columns:1fr}}
+
+input[type=text],input[type=tel],textarea,select{
+  width:100%;border:1px solid var(--hairline);border-radius:14px;background:var(--paper);
+  padding:13px 18px;font-family:var(--sans);font-size:14.5px;color:var(--ink);outline:none;transition:border .2s,box-shadow .2s;
+}
+input:focus,textarea:focus,select:focus{border-color:var(--wood);box-shadow:0 0 0 3px rgba(176,137,97,.15)}
+textarea{min-height:88px;resize:vertical}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:560px){.row2{grid-template-columns:1fr}}
+
+.dog-only,.exotic-only{display:none}
+body[data-species="dog"] .dog-only{display:block}
+body[data-species="exotic"] .exotic-only{display:block}
+
+/* nav buttons */
+.form-nav{display:flex;justify-content:space-between;align-items:center;margin-top:38px;padding-top:26px;border-top:1px dashed var(--hairline)}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;font-weight:500;font-size:14.5px;letter-spacing:.06em;
+  padding:13px 30px;border-radius:999px;cursor:pointer;border:1px solid transparent;font-family:var(--sans);
+  transition:all .25s;
+}
+.btn-primary{background:var(--clay);color:#FDF9F3;box-shadow:0 10px 22px -12px rgba(168,91,48,.55)}
+.btn-primary:hover{background:var(--clay-deep);transform:translateY(-2px)}
+.btn-ghost{border-color:var(--wood);color:var(--wood-deep);background:transparent}
+.btn-ghost:hover{background:var(--wood-mist)}
+.btn[disabled]{opacity:.35;pointer-events:none}
+.err{color:#B2492C;font-size:12.5px;margin-top:8px;display:none}
+.err.show{display:block}
+
+.agree{display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:var(--ink-soft);margin-top:6px}
+.agree input{width:17px;height:17px;margin-top:3px;accent-color:var(--clay)}
+.agree a{color:var(--wood-deep);border-bottom:1px solid var(--wood)}
+
+/* success */
+#done{text-align:center;padding:30px 0 12px}
+#done .mark{
+  width:76px;height:76px;border-radius:50%;background:var(--wood-mist);margin:0 auto 26px;
+  display:flex;align-items:center;justify-content:center;font-size:32px;
+  animation:pop .5s cubic-bezier(.34,1.56,.64,1);
+}
+@keyframes pop{from{transform:scale(.4);opacity:0}to{transform:scale(1);opacity:1}}
+#done h2{font-size:26px;margin-bottom:12px}
+#done p{color:var(--ink-soft);font-size:14.5px;max-width:26em;margin:0 auto 30px}
+.privacy-note{text-align:center;font-size:12px;color:var(--ink-soft);margin-top:26px;letter-spacing:.05em}
+</style>
+</head>
+<body data-species="">
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="index.html">PAWSTAY <em>寵在家</em></a>
+    <a class="nav-back" href="index.html">← 回首頁</a>
+  </div>
+</nav>
+
+<div class="shell">
+  <div class="intro">
+    <p class="eyebrow">Pet Profile</p>
+    <h1>先讓我們認識牠</h1>
+    <p>約 5 分鐘・填得越細，照顧計畫越貼近牠的日常</p>
+  </div>
+
+  <div class="progress" id="progress">
+    <div class="pstep"><div class="dot">1</div><div class="plabel">牠是誰</div></div>
+    <div class="pstep"><div class="dot">2</div><div class="plabel">體格健康</div></div>
+    <div class="pstep"><div class="dot">3</div><div class="plabel">個性相處</div></div>
+    <div class="pstep"><div class="dot">4</div><div class="plabel">照護需求</div></div>
+    <div class="pstep"><div class="dot">5</div><div class="plabel">居家環境</div></div>
+    <div class="pstep"><div class="dot">6</div><div class="plabel">飼主資料</div></div>
+  </div>
+
+  <form class="card" id="form" onsubmit="return false">
+
+    <!-- STEP 1 -->
+    <section class="step-panel" data-step="0">
+      <h2>牠是誰？</h2>
+      <p class="hint">從最基本的開始——種類會決定我們接下來問什麼。</p>
+      <div class="q">
+        <span class="qt">寵物種類 <span class="opt-note">單選・必填</span></span>
+        <div class="big-choice" id="speciesChoice">
+          <label><input type="radio" name="species" value="cat"><span class="glyph">🐈</span><span class="name">貓咪</span><span class="desc">在牠的領地溫柔照顧</span></label>
+          <label><input type="radio" name="species" value="dog"><span class="glyph">🐕</span><span class="name">狗狗</span><span class="desc">照顧＋散步＋GPS</span></label>
+          <label><input type="radio" name="species" value="exotic"><span class="glyph">🦜</span><span class="name">特殊寵物</span><span class="desc">兔・鼠・鳥・爬蟲</span></label>
+        </div>
+        <p class="err" id="errSpecies">請先選擇寵物種類</p>
+      </div>
+      <div class="q exotic-only">
+        <span class="qt">物種 <span class="opt-note">單選</span></span>
+        <div class="chips">
+          <label><input type="radio" name="exoticKind" value="rabbit"><span>兔子</span></label>
+          <label><input type="radio" name="exoticKind" value="rodent"><span>天竺鼠・倉鼠</span></label>
+          <label><input type="radio" name="exoticKind" value="bird"><span>鳥類</span></label>
+          <label><input type="radio" name="exoticKind" value="reptile"><span>爬蟲類</span></label>
+          <label><input type="radio" name="exoticKind" value="other"><span>其他</span></label>
+        </div>
+      </div>
+      <div class="row2">
+        <div class="q">
+          <label for="petName">牠的名字 <span class="opt-note">必填</span></label>
+          <input type="text" id="petName" placeholder="例：麻糬">
+          <p class="err" id="errName">請告訴我們牠的名字</p>
+        </div>
+        <div class="q">
+          <label>品種 <span class="opt-note">選填</span></label>
+          <input type="text" placeholder="例：米克斯、柴犬、垂耳兔">
+        </div>
+      </div>
+      <div class="q">
+        <span class="qt">年齡 <span class="opt-note">單選</span></span>
+        <div class="chips">
+          <label><input type="radio" name="age" value="young"><span>幼年（未滿 1 歲）</span></label>
+          <label><input type="radio" name="age" value="adult"><span>成年（1–7 歲）</span></label>
+          <label><input type="radio" name="age" value="senior"><span>熟齡（7 歲以上）</span></label>
+          <label><input type="radio" name="age" value="unknown"><span>不確定</span></label>
+        </div>
+      </div>
+      <div class="q">
+        <span class="qt">性別與絕育 <span class="opt-note">單選</span></span>
+        <div class="chips">
+          <label><input type="radio" name="sex" value="mn"><span>男生・已絕育</span></label>
+          <label><input type="radio" name="sex" value="m"><span>男生・未絕育</span></label>
+          <label><input type="radio" name="sex" value="fn"><span>女生・已絕育</span></label>
+          <label><input type="radio" name="sex" value="f"><span>女生・未絕育</span></label>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 2 -->
+    <section class="step-panel" data-step="1">
+      <h2>體格與健康</h2>
+      <p class="hint">健康資訊只用於照顧安排與緊急應變，我們依隱私權政策嚴格保護。</p>
+      <div class="q">
+        <span class="qt">體型 <span class="opt-note">單選</span></span>
+        <div class="chips">
+          <label><input type="radio" name="size" value="xs"><span>迷你（4kg 以下）</span></label>
+          <label><input type="radio" name="size" value="s"><span>小型（4–10kg）</span></label>
+          <label><input type="radio" name="size" value="m"><span>中型（10–25kg）</span></label>
+          <label><input type="radio" name="size" value="l"><span>大型（25kg 以上）</span></label>
+        </div>
+      </div>
+      <div class="q">
+        <span class="qt">疫苗接種 <span class="opt-note">單選</span></span>
+        <div class="chips">
+          <label><input type="radio" name="vaccine" value="in1y"><span>一年內完成</span></label>
+          <label><input type="radio" name="vaccine" value="over1y"><span>超過一年</span></label>
+          <label><input type="radio" name="vaccine" value="none"><span>未接種</span></label>
+          <label><input type="radio" name="vaccine" value="unknown"><span>不確定</span></label>
+        </div>
+      </div>
+      <div class="q">
+        <span class="qt">健康狀況 <span class="opt-note">複選</span></span>
+        <div class="chips">
+          <label><input type="checkbox" name="health" value="none"><span>無特殊狀況</span></label>
+          <label><input type="checkbox" name="health" value="chronic"><span>慢性病</span></label>
+          <label><input type="checkbox" name="health" value="skin"><span>皮膚問題</span></label>
+          <label><input type="checkbox" name="health" value="joint"><span>關節退化</span></label>
+          <label><input type="checkbox" name="health" value="sense"><span>視力・聽力退化</span></label>
+          <label><input type="checkbox" name="health" value="postop"><span>術後恢復中</span></label>
+        </div>
+      </div>
+      <div class="q">
+        <label>目前用藥或保健品 <span class="opt-note">選填・名稱＋劑量＋餵法</span></label>
+        <textarea placeholder="例：心臟藥（Vetmedin 1.25mg）早晚各半顆，混罐頭餵"></textarea>
+      </div>
+      <div class="q">
+        <label>固定就醫的動物醫院 <span class="opt-note">選填・緊急時聯繫</span></label>
+        <input type="text" placeholder="例：安心動物醫院・02-1234-5678">
+      </div>
+    </section>
+
+    <!-- STEP 3 -->
+    <section class="step-panel" data-step="2">
+      <h2>個性與相處</h2>
+      <p class="hint">這一步最重要——牠的脾氣與地雷，決定保姆用什麼方式靠近牠。</p>
+      <div class="q">
+        <span class="qt">見到陌生人的反應 <span class="opt-note">單選</span></span>
+        <div class="chips">
+          <label><input type="radio" name="stranger" value="friendly"><span>主動親人</span></label>
+          <label><input type="radio" name="stranger" value="slow"><span>慢熟觀察</span></label>
+          <label><input type="radio" name="stranger" value="hide"><span>緊張躲藏</span></label>
+          <label><input type="radio" name="stranger" value="defensive"><span>可能哈氣・低吼</span></label>
+        </div>
+      </div>
+      <div class="q">
+        <span class="qt">活動量 <span class="opt-note">單選</span></span>
+        <div class="chips">
+          <label><input type="radio" name="energy" value="low"><span>沙發馬鈴薯</span></label>
+          <label><input type="radio" name="energy" value="mid"><span>溫和活潑</span></label>
+          <label><input type="radio" name="energy" value="high"><span>精力旺盛</span></label>
+        </div>
+      </div>
+      <div class="q">
+        <span class="qt">個性標籤 <span class="opt-note">複選・幫牠貼幾個</span></span>
+        <div class="chips">
+          <label><input type="checkbox" name="traits" value="clingy"><span>黏人</span></label>
+          <label><input type="checkbox" name="traits" value="indep"><span>獨立</span></label>
+          <label><input type="checkbox" name="traits" value="foodie"><span>貪吃</span></label>
+          <label><input type="checkbox" name="traits" value="shy"><span>膽小</span></label>
+          <label><input type="checkbox" name="traits" value="toys"><span>愛玩玩具</span></label>
+          <label><input type="checkbox" name="traits" value="groom"><span>喜歡梳毛</span></label>
+          <label><input type="checkbox" name="traits" value="foodguard"><span>護食</span></label>
+          <label><input type="checkbox" name="traits" value="noise"><span>對聲音敏感</span></label>
+        </div>
+      </div>
+      <div class="q dog-only">
+        <span class="qt">與其他狗相處 <span class="opt-note">單選</span></span>
+        <div class="chips">
+          <label><input type="radio" name="dogsocial" value="friendly"><span>友善</span></label>
+          <label><input type="radio" name="dogsocial" value="selective"><span>選擇性友善</span></label>
+          <label><input type="radio" name="dogsocial" value="distance"><span>需保持距離</span></label>
+          <label><input type="radio" name="dogsocial" value="unknown"><span>不確定</span></label>
+        </div>
+      </div>
+      <div class="q">
+        <label>絕對不能踩的地雷 <span class="opt-note">簡答・越具體越好</span></label>
+        <textarea placeholder="例：不能摸肚子；聽到門鈴會爆衝；抱牠會生氣"></textarea>
+      </div>
+    </section>
+
+    <!-- STEP 4 -->
+    <section class="step-panel" data-step="3">
+      <h2>日常照護需求</h2>
+      <p class="hint">照牠原本的節奏來——我們配合牠，不是牠配合我們。</p>
+      <div class="q">
+        <span class="qt">餵食頻率 <span class="opt-note">單選</span></span>
+        <div class="chips">
+          <label><input type="radio" name="feed" value="1"><span>一天 1 次</span></label>
+          <label><input type="radio" name="feed" value="2"><span>一天 2 次</span></label>
+          <label><input type="radio" name="feed" value="3"><span>一天 3 次以上</span></label>
+          <label><input type="radio" name="feed" value="free"><span>自由取食</span></label>
+        </div>
+      </div>
+      <div class="q">
+        <span class="qt">飲食內容 <span class="opt-note">複選</span></span>
+        <div class="chips">
+          <label><input type="checkbox" name="diet" value="dry"><span>乾糧</span></label>
+          <label><input type="checkbox" name="diet" value="wet"><span>濕食・主食罐</span></label>
+          <label><input type="checkbox" name="diet" value="fresh"><span>鮮食</span></label>
+          <label><input type="checkbox" name="diet" value="rx"><span>處方飼料</span></label>
+          <label><input type="checkbox" name="diet" value="prep"><span>需現場備餐</span></label>
+        </div>
+      </div>
+      <div class="q dog-only">
+        <span class="qt">散步需求 <span class="opt-note">單選</span></span>
+        <div class="chips">
+          <label><input type="radio" name="walk" value="must"><span>每次必須</span></label>
+          <label><input type="radio" name="walk" value="weather"><span>視天氣</span></label>
+          <label><input type="radio" name="walk" value="no"><span>不需要</span></label>
+        </div>
+      </div>
+      <div class="q dog-only">
+        <label>慣用散步路線與牽繩習慣 <span class="opt-note">簡答</span></label>
+        <textarea placeholder="例：固定走河堤，用胸背帶；看到機車會想追，要拉緊"></textarea>
+      </div>
+      <div class="q">
+        <span class="qt">特殊照護 <span class="opt-note">複選</span></span>
+        <div class="chips">
+          <label><input type="checkbox" name="special" value="fluid"><span>皮下輸液</span></label>
+          <label><input type="checkbox" name="special" value="med"><span>餵藥</span></label>
+          <label><input type="checkbox" name="special" value="inject"><span>針劑</span></label>
+          <label><input type="checkbox" name="special" value="wound"><span>傷口護理</span></label>
+          <label><input type="checkbox" name="special" value="senior"><span>高齡陪伴</span></label>
+          <label><input type="checkbox" name="special" value="anxiety"><span>分離焦慮安撫</span></label>
+          <label><input type="checkbox" name="special" value="none"><span>不適用</span></label>
+        </div>
+      </div>
+      <div class="q">
+        <span class="qt">清潔項目 <span class="opt-note">複選</span></span>
+        <div class="chips">
+          <label><input type="checkbox" name="clean" value="litter"><span>貓砂盆</span></label>
+          <label><input type="checkbox" name="clean" value="cage"><span>籠舍・棲箱</span></label>
+          <label><input type="checkbox" name="clean" value="pad"><span>尿布墊</span></label>
+          <label><input type="checkbox" name="clean" value="brush"><span>梳毛</span></label>
+          <label><input type="checkbox" name="clean" value="none"><span>不需要</span></label>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 5 -->
+    <section class="step-panel" data-step="4">
+      <h2>居家環境</h2>
+      <p class="hint">進出方式與環境細節，是安全照顧的第一步。所有資訊僅服務保姆與客服可見。</p>
+      <div class="q">
+        <span class="qt">居住型態 <span class="opt-note">單選</span></span>
+        <div class="chips">
+          <label><input type="radio" name="home" value="elevator"><span>電梯大樓</span></label>
+          <label><input type="radio" name="home" value="apartment"><span>公寓</span></label>
+          <label><input type="radio" name="home" value="house"><span>透天</span></label>
+          <label><input type="radio" name="home" value="other"><span>其他</span></label>
+        </div>
+      </div>
+      <div class="q">
+        <span class="qt">保姆進出方式 <span class="opt-note">單選</span></span>
+        <div class="chips">
+          <label><input type="radio" name="entry" value="code"><span>密碼鎖</span></label>
+          <label><input type="radio" name="entry" value="key"><span>鑰匙寄放</span></label>
+          <label><input type="radio" name="entry" value="desk"><span>管理室代收</span></label>
+          <label><input type="radio" name="entry" value="inperson"><span>到場交付</span></label>
+        </div>
+      </div>
+      <div class="q">
+        <span class="qt">是否需要安裝專屬監視器 <span class="opt-note">單選</span></span>
+        <div class="chips">
+          <label><input type="radio" name="camera" value="install"><span>需要（服務期間安裝）</span></label>
+          <label><input type="radio" name="camera" value="own"><span>已有攝影機・願共享畫面</span></label>
+          <label><input type="radio" name="camera" value="no"><span>不需要</span></label>
+        </div>
+      </div>
+      <div class="q">
+        <label>環境注意事項 <span class="opt-note">簡答</span></label>
+        <textarea placeholder="例：陽台門務必隨手關；牠會自己開櫃子；浴室不能進"></textarea>
+      </div>
+    </section>
+
+    <!-- STEP 6 -->
+    <section class="step-panel" data-step="5">
+      <h2>最後，認識一下你</h2>
+      <p class="hint">送出後 24 小時內，專人與你聯繫安排免費視訊認識。</p>
+      <div class="row2">
+        <div class="q">
+          <label>姓名 <span class="opt-note">必填</span></label>
+          <input type="text" id="ownerName" placeholder="怎麼稱呼你？">
+        </div>
+        <div class="q">
+          <label>手機 <span class="opt-note">必填</span></label>
+          <input type="tel" id="ownerPhone" placeholder="09xx-xxx-xxx">
+        </div>
+      </div>
+      <div class="row2">
+        <div class="q">
+          <label>LINE ID <span class="opt-note">選填</span></label>
+          <input type="text" placeholder="日誌與通知的主要管道">
+        </div>
+        <div class="q">
+          <label>服務地區 <span class="opt-note">必填</span></label>
+          <select id="ownerArea">
+            <option value="">請選擇</option>
+            <option>台北市</option>
+            <option>新北市</option>
+            <option>其他地區（登記開放通知）</option>
+          </select>
+        </div>
+      </div>
+      <div class="q">
+        <label>緊急聯絡人 <span class="opt-note">選填・姓名＋電話</span></label>
+        <input type="text" placeholder="無法聯繫上你時的第二順位">
+      </div>
+      <div class="q">
+        <span class="qt">如何得知 PAWSTAY？ <span class="opt-note">單選</span></span>
+        <div class="chips">
+          <label><input type="radio" name="ref" value="ig"><span>Instagram</span></label>
+          <label><input type="radio" name="ref" value="friend"><span>親友推薦</span></label>
+          <label><input type="radio" name="ref" value="search"><span>搜尋引擎</span></label>
+          <label><input type="radio" name="ref" value="vet"><span>動物醫院</span></label>
+          <label><input type="radio" name="ref" value="other"><span>其他</span></label>
+        </div>
+      </div>
+      <div class="q">
+        <label class="agree">
+          <input type="checkbox" id="agree">
+          <span>我已閱讀並同意 <a href="index.html#trust">服務條款</a> 與 <a href="index.html#trust">隱私權政策</a>，了解寵物與居家資訊僅用於照顧服務安排。</span>
+        </label>
+        <p class="err" id="errFinal">請填寫姓名、手機、服務地區，並勾選同意條款</p>
+      </div>
+    </section>
+
+    <!-- DONE -->
+    <section class="step-panel" data-step="6">
+      <div id="done">
+        <div class="mark">🐾</div>
+        <h2>檔案建好了，<span id="doneName">牠</span>的專屬照顧從這裡開始</h2>
+        <p>我們已收到寵物檔案。專人將於 24 小時內與你聯繫，安排免費 15 分鐘視訊認識——見到牠之前，我們會先讀熟牠的一切。</p>
+        <a class="btn btn-primary" href="index.html">回到首頁</a>
+      </div>
+    </section>
+
+    <div class="form-nav" id="formNav">
+      <button type="button" class="btn btn-ghost" id="prevBtn">← 上一步</button>
+      <button type="button" class="btn btn-primary" id="nextBtn">下一步 →</button>
+    </div>
+    <p class="privacy-note">🔒 此為原型示意，表單內容不會被送出或儲存</p>
+  </form>
+</div>
+
+<script>
+const panels=[...document.querySelectorAll('.step-panel')];
+const psteps=[...document.querySelectorAll('.pstep')];
+const prevBtn=document.getElementById('prevBtn');
+const nextBtn=document.getElementById('nextBtn');
+const formNav=document.getElementById('formNav');
+let cur=0;
+const LAST=5; // last input step index; 6 = done
+
+function render(){
+  panels.forEach((p,i)=>p.classList.toggle('on',i===cur));
+  psteps.forEach((s,i)=>{
+    s.classList.toggle('active',i===cur);
+    s.classList.toggle('done',i<cur);
+    if(i<cur) s.querySelector('.dot').textContent='✓';
+    else s.querySelector('.dot').textContent=i+1;
+  });
+  prevBtn.style.visibility=cur===0?'hidden':'visible';
+  nextBtn.textContent=cur===LAST?'送出寵物檔案 ✓':'下一步 →';
+  formNav.style.display=cur>LAST?'none':'flex';
+  document.getElementById('progress').style.display=cur>LAST?'none':'flex';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function validate(){
+  if(cur===0){
+    const sp=document.querySelector('input[name=species]:checked');
+    const nm=document.getElementById('petName').value.trim();
+    document.getElementById('errSpecies').classList.toggle('show',!sp);
+    document.getElementById('errName').classList.toggle('show',!nm);
+    return !!sp&&!!nm;
+  }
+  if(cur===LAST){
+    const ok=document.getElementById('ownerName').value.trim()
+      && document.getElementById('ownerPhone').value.trim()
+      && document.getElementById('ownerArea').value
+      && document.getElementById('agree').checked;
+    document.getElementById('errFinal').classList.toggle('show',!ok);
+    return !!ok;
+  }
+  return true;
+}
+
+nextBtn.addEventListener('click',()=>{
+  if(!validate())return;
+  if(cur===LAST){
+    const nm=document.getElementById('petName').value.trim();
+    if(nm)document.getElementById('doneName').textContent=nm;
+  }
+  cur++;render();
+});
+prevBtn.addEventListener('click',()=>{if(cur>0){cur--;render();}});
+
+document.getElementById('speciesChoice').addEventListener('change',()=>{
+  const sp=document.querySelector('input[name=species]:checked');
+  document.body.dataset.species=sp?sp.value:'';
+  if(sp)document.getElementById('errSpecies').classList.remove('show');
+});
+document.getElementById('petName').addEventListener('input',e=>{
+  if(e.target.value.trim())document.getElementById('errName').classList.remove('show');
+});
+render();
+</script>
+</body>
+</html>
