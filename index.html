@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PAWSTAY 寵在家｜不出門的五星級照顧——雙北到府寵物保姆</title>
+<title>爪爪日常 Pawfect Life｜不出門的五星級照顧——雙北到府寵物保姆</title>
+<link rel="icon" type="image/png" href="assets/logo/logo-square.png">
+<link rel="apple-touch-icon" href="assets/logo/app-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Noto+Serif+TC:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -17,8 +19,8 @@
   --wood:#B08961;
   --wood-deep:#8F6B47;
   --wood-mist:#E4D5C0;
-  --clay:#C4703F;
-  --clay-deep:#A85B30;
+  --clay:#31897D;
+  --clay-deep:#276E64;
   --night:#2B2620;
   --hairline:rgba(143,107,71,.22);
   --serif:"Fraunces","Noto Serif TC",serif;
@@ -61,8 +63,8 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.35;letter-spacin
   padding:15px 32px;border-radius:999px;cursor:pointer;border:1px solid transparent;
   transition:transform .25s ease,box-shadow .25s ease,background .25s ease,color .25s;
 }
-.btn-primary{background:var(--clay);color:#FDF9F3;box-shadow:0 10px 24px -12px rgba(168,91,48,.55)}
-.btn-primary:hover{background:var(--clay-deep);transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(168,91,48,.6)}
+.btn-primary{background:var(--clay);color:#FDF9F3;box-shadow:0 10px 24px -12px rgba(39,110,100,.5)}
+.btn-primary:hover{background:var(--clay-deep);transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(39,110,100,.55)}
 .btn-ghost{border-color:var(--wood);color:var(--wood-deep);background:transparent}
 .btn-ghost:hover{background:var(--wood-mist);transform:translateY(-2px)}
 .btn .arr{transition:transform .25s}
@@ -75,7 +77,8 @@ nav{
   border-bottom:1px solid var(--hairline);
 }
 .nav-inner{max-width:1120px;margin:0 auto;padding:0 clamp(20px,5vw,48px);height:72px;display:flex;align-items:center;justify-content:space-between}
-.logo{font-family:var(--serif);font-size:20px;font-weight:600;letter-spacing:.08em;display:flex;align-items:baseline;gap:10px}
+.logo{font-family:var(--serif);font-size:20px;font-weight:600;letter-spacing:.08em;display:flex;align-items:center;gap:10px}
+.logo-img{height:30px;width:auto;display:block}
 .logo em{font-style:normal;font-family:var(--sans);font-size:12.5px;font-weight:500;color:var(--wood-deep);letter-spacing:.24em}
 .nav-links{display:flex;gap:34px;font-size:14px;letter-spacing:.1em}
 .nav-links a{color:var(--ink-soft);position:relative;padding:4px 0}
@@ -202,6 +205,8 @@ section{padding:clamp(72px,10vw,120px) 0}
 #app .eyebrow{color:#CDB58F}
 #app .eyebrow::before{background:#CDB58F}
 #app .sec-lead{color:#B9AC97}
+.app-brand{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-size:15px;letter-spacing:.14em;color:#E0C9A8;margin-bottom:20px}
+.app-brand img{width:42px;height:42px;border-radius:50%;box-shadow:0 8px 20px -8px rgba(0,0,0,.6)}
 .app-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(36px,6vw,80px);align-items:center}
 .phone{
   width:min(280px,80%);margin:0 auto;aspect-ratio:9/18.6;border-radius:38px;
@@ -306,7 +311,7 @@ footer{border-top:1px solid var(--hairline);background:var(--paper-deep);padding
 
 <nav>
   <div class="nav-inner">
-    <a class="logo" href="#top">PAWSTAY <em>寵在家</em></a>
+    <a class="logo" href="#top"><img class="logo-img" src="assets/logo/logo.png" alt="爪爪日常 logo">爪爪日常 <em>PAWFECT LIFE</em></a>
     <div class="nav-links">
       <a href="#services">服務項目</a>
       <a href="#first">首次體驗</a>
@@ -326,7 +331,7 @@ footer{border-top:1px solid var(--hairline);background:var(--paper-deep);padding
     <div>
       <p class="eyebrow rv" style="--d:0">Taipei · In-home Pet Care</p>
       <h1 class="rv" style="--d:1">你不在家的日子，<br>牠依然<span class="accent">被好好愛著</span>。</h1>
-      <p class="hero-sub rv" style="--d:2">PAWSTAY 寵在家——到府照顧・陪伴散步・即時影像回傳。貓、狗與特殊寵物的專屬保姆，現正服務台北市・新北市。</p>
+      <p class="hero-sub rv" style="--d:2">爪爪日常 Pawfect Life——到府照顧・陪伴散步・即時影像回傳。貓、狗與特殊寵物的專屬保姆，現正服務台北市・新北市。</p>
       <div class="hero-ctas rv" style="--d:3">
         <a class="btn btn-primary" href="pet-intake.html">NT$690 預約首次體驗 <span class="arr">→</span></a>
         <a class="btn btn-ghost" href="#tiers">查看服務等級</a>
@@ -348,9 +353,9 @@ footer{border-top:1px solid var(--hairline);background:var(--paper-deep);padding
         <path d="M198 158c4 6 12 6 16 0" stroke="#8F6B47" stroke-width="5" stroke-linecap="round"/>
         <path d="M96 230c-6 26 6 44 30 44 52 0 26-38 74-38" stroke="#8F6B47" stroke-width="5" stroke-linecap="round"/>
         <path d="M330 208c26 10 30 42 6 56-16 9-34 6-46-6" stroke="#B08961" stroke-width="5" stroke-linecap="round"/>
-        <circle cx="330" cy="110" r="4" fill="#C4703F"/>
-        <circle cx="352" cy="88" r="3" fill="#C4703F" opacity=".7"/>
-        <circle cx="344" cy="132" r="2.5" fill="#C4703F" opacity=".5"/>
+        <circle cx="330" cy="110" r="4" fill="#45AB9D"/>
+        <circle cx="352" cy="88" r="3" fill="#45AB9D" opacity=".7"/>
+        <circle cx="344" cy="132" r="2.5" fill="#45AB9D" opacity=".5"/>
       </svg>
       <span class="tatezumi">安心・在宅・陪伴</span>
     </div>
@@ -501,9 +506,10 @@ footer{border-top:1px solid var(--hairline);background:var(--paper-deep);padding
     </div>
     <div>
       <div class="sec-head rv" style="margin-bottom:34px">
+        <div class="app-brand"><img src="assets/logo/app-icon.png" alt="爪爪日常 APP icon">爪爪日常 APP</div>
         <p class="eyebrow">Smart App</p>
         <h2 class="sec-title">牠的每一刻，都在你手心</h2>
-        <p class="sec-lead">PAWSTAY 專屬 APP 整合現有智慧硬體——保姆到府的第一件事，就是讓你看得見。</p>
+        <p class="sec-lead">爪爪日常專屬 APP 整合現有智慧硬體——保姆到府的第一件事，就是讓你看得見。</p>
       </div>
       <div class="app-feats">
         <div class="feat rv">
@@ -529,7 +535,7 @@ footer{border-top:1px solid var(--hairline);background:var(--paper-deep);padding
     <div class="sec-head rv">
       <p class="eyebrow">Our Sitters</p>
       <h2 class="sec-title">每一位保姆，都經過我們自己也放心的訓練</h2>
-      <p class="sec-lead">60 小時完訓、良民證查核、實名認證、定期回訓——這是進入 PAWSTAY 的最低標準。</p>
+      <p class="sec-lead">60 小時完訓、良民證查核、實名認證、定期回訓——這是進入爪爪日常的最低標準。</p>
     </div>
     <div class="sitter-grid">
       <div class="sitter rv">
@@ -537,7 +543,7 @@ footer{border-top:1px solid var(--hairline);background:var(--paper-deep);padding
           <svg viewBox="0 0 120 100" fill="none"><circle cx="60" cy="46" r="22" stroke="#8F6B47" stroke-width="3.5"/><path d="M24 100c4-22 18-32 36-32s32 10 36 32" stroke="#8F6B47" stroke-width="3.5" stroke-linecap="round"/><path d="M48 44c0 2 1 3 3 3M69 44c0 2 1 3 3 3" stroke="#8F6B47" stroke-width="3" stroke-linecap="round"/><path d="M54 55c3 3 9 3 12 0" stroke="#8F6B47" stroke-width="3" stroke-linecap="round"/></svg>
         </div>
         <div class="sitter-body">
-          <h3>Yuki 林 <small>認證編號 PS-0102</small></h3>
+          <h3>Yuki 林 <small>認證編號 PL-0102</small></h3>
           <div class="cert">寵物照護員認證・高齡貓照護專修｜年資 6 年</div>
           <p>曾任動物醫院助理，擅長慢性病貓咪的餵藥與皮下輸液，相信「安靜的陪伴是貓的語言」。</p>
           <div class="tags"><span>高齡照護</span><span>餵藥・輸液</span><span>膽小貓友善</span></div>
@@ -548,7 +554,7 @@ footer{border-top:1px solid var(--hairline);background:var(--paper-deep);padding
           <svg viewBox="0 0 120 100" fill="none"><circle cx="60" cy="46" r="22" stroke="#8F6B47" stroke-width="3.5"/><path d="M24 100c4-22 18-32 36-32s32 10 36 32" stroke="#8F6B47" stroke-width="3.5" stroke-linecap="round"/><path d="M38 32c6-8 14-12 22-12s16 4 22 12" stroke="#8F6B47" stroke-width="3.5" stroke-linecap="round"/><path d="M48 46c0 2 1 3 3 3M69 46c0 2 1 3 3 3M54 56c3 3 9 3 12 0" stroke="#8F6B47" stroke-width="3" stroke-linecap="round"/></svg>
         </div>
         <div class="sitter-body">
-          <h3>阿凱 <small>認證編號 PS-0087</small></h3>
+          <h3>阿凱 <small>認證編號 PL-0087</small></h3>
           <div class="cert">犬隻行為訓練師（CPDT 研習）｜年資 8 年</div>
           <p>中大型犬與高活動量犬的散步專家，熟悉牽繩禮儀與分離焦慮安撫，被狗狗們視為自己人。</p>
           <div class="tags"><span>大型犬</span><span>行為訓練</span><span>分離焦慮</span></div>
@@ -559,7 +565,7 @@ footer{border-top:1px solid var(--hairline);background:var(--paper-deep);padding
           <svg viewBox="0 0 120 100" fill="none"><circle cx="60" cy="46" r="22" stroke="#8F6B47" stroke-width="3.5"/><path d="M24 100c4-22 18-32 36-32s32 10 36 32" stroke="#8F6B47" stroke-width="3.5" stroke-linecap="round"/><path d="M42 28c0-6 8-10 18-10s18 4 18 10" stroke="#8F6B47" stroke-width="3.5" stroke-linecap="round"/><path d="M48 46c0 2 1 3 3 3M69 46c0 2 1 3 3 3M54 56c3 3 9 3 12 0" stroke="#8F6B47" stroke-width="3" stroke-linecap="round"/></svg>
         </div>
         <div class="sitter-body">
-          <h3>小敏 <small>認證編號 PS-0121</small></h3>
+          <h3>小敏 <small>認證編號 PL-0121</small></h3>
           <div class="cert">特寵照護專修（兔・鼠・爬蟲）｜年資 5 年</div>
           <p>異寵社群資深照護者，熟悉溫溼度控管與物種食性，家裡住著兩隻垂耳兔和一隻守宮。</p>
           <div class="tags"><span>兔・天竺鼠</span><span>爬蟲類</span><span>環境控管</span></div>
@@ -653,7 +659,7 @@ footer{border-top:1px solid var(--hairline);background:var(--paper-deep);padding
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a class="logo" href="#top">PAWSTAY <em>寵在家</em></a>
+        <a class="logo" href="#top"><img class="logo-img" src="assets/logo/logo.png" alt="爪爪日常 logo">爪爪日常 <em>PAWFECT LIFE</em></a>
         <p>不出門的五星級照顧。到府寵物保姆・會員制服務平台，現正服務台北市・新北市，其他地區陸續開放中。</p>
       </div>
       <div>
@@ -682,7 +688,7 @@ footer{border-top:1px solid var(--hairline);background:var(--paper-deep);padding
       </div>
     </div>
     <div class="foot-base">
-      <span>© 2026 PAWSTAY 寵在家（原型示意）</span>
+      <span>© 2026 爪爪日常 Pawfect Life（原型示意）</span>
       <span>服務地區：台北市・新北市｜其他地區 <a href="#" style="border-bottom:1px solid var(--wood)">登記開放通知</a></span>
     </div>
   </div>
