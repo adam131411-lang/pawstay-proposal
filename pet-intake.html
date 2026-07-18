@@ -92,11 +92,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(248,244,237,
 }
 .big-choice label:hover{border-color:var(--wood);transform:translateY(-3px)}
 .big-choice input{display:none}
-.big-choice .glyph{font-size:34px;line-height:1}
+.big-choice .glyph{height:56px;width:auto;display:block;margin:0 auto}
 .big-choice .name{font-weight:500;font-size:15px}
 .big-choice .desc{font-size:11.5px;color:var(--ink-soft);letter-spacing:.04em}
 .big-choice label:has(input:checked){background:var(--wood-deep);border-color:var(--wood-deep)}
 .big-choice label:has(input:checked) .name{color:#FDF9F3}
+.big-choice label:has(input:checked) .glyph{filter:brightness(0) invert(1)}
 .big-choice label:has(input:checked) .desc{color:#E0D2BC}
 @media(max-width:560px){.big-choice{grid-template-columns:1fr}}
 
@@ -179,9 +180,9 @@ body[data-species="exotic"] .exotic-only{display:block}
       <div class="q">
         <span class="qt">寵物種類 <span class="opt-note">單選・必填</span></span>
         <div class="big-choice" id="speciesChoice">
-          <label><input type="radio" name="species" value="cat"><span class="glyph">🐈</span><span class="name">貓咪</span><span class="desc">在牠的領地溫柔照顧</span></label>
-          <label><input type="radio" name="species" value="dog"><span class="glyph">🐕</span><span class="name">狗狗</span><span class="desc">照顧＋散步＋GPS</span></label>
-          <label><input type="radio" name="species" value="exotic"><span class="glyph">🦜</span><span class="name">特殊寵物</span><span class="desc">兔・鼠・鳥・爬蟲</span></label>
+          <label><input type="radio" name="species" value="cat"><img class="glyph" src="assets/species/cat.png" alt="貓咪線稿"><span class="name">貓咪</span><span class="desc">在牠的領地溫柔照顧</span></label>
+          <label><input type="radio" name="species" value="dog"><img class="glyph" src="assets/species/dog.png" alt="狗狗線稿"><span class="name">狗狗</span><span class="desc">照顧＋散步＋GPS</span></label>
+          <label><input type="radio" name="species" value="exotic"><img class="glyph" src="assets/species/exotic.png" alt="鳥類線稿"><span class="name">特殊寵物</span><span class="desc">兔・鼠・鳥・爬蟲</span></label>
         </div>
         <p class="err" id="errSpecies">請先選擇寵物種類</p>
       </div>
