@@ -238,16 +238,19 @@ section{padding:clamp(72px,10vw,120px) 0}
   background:linear-gradient(160deg,#5C4322 0%,#3E2B15 55%,#2A1C0D 100%);
   display:flex;flex-direction:column;
 }
-.cam-view{flex:1;position:relative;display:flex;align-items:center;justify-content:center}
-.cam-view svg{width:62%;opacity:.9}
+.cam-view{flex:1;position:relative;overflow:hidden}
+.cam-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cam-view::after{content:"";position:absolute;left:0;right:0;top:0;height:70px;background:linear-gradient(180deg,rgba(0,0,0,.4),transparent)}
+
 .live-tag{
-  position:absolute;top:14px;left:14px;background:rgba(196,64,48,.92);color:#fff;
+  position:absolute;top:14px;left:14px;z-index:1;background:rgba(196,64,48,.92);color:#fff;
   font-size:10px;letter-spacing:.2em;padding:4px 10px;border-radius:6px;display:flex;align-items:center;gap:6px;
 }
 .live-dot{width:6px;height:6px;border-radius:50%;background:#fff;animation:blink 1.4s infinite}
 @keyframes blink{50%{opacity:.25}}
-.cam-time{position:absolute;top:16px;right:14px;font-size:10px;color:rgba(255,255,255,.7);letter-spacing:.1em}
-.cam-bar{background:rgba(0,0,0,.35);padding:14px 16px;font-size:11px;color:#E8CDA3;display:flex;justify-content:space-between;letter-spacing:.08em}
+.cam-time{position:absolute;top:16px;right:14px;z-index:1;font-size:10px;color:rgba(255,255,255,.7);letter-spacing:.1em}
+.cam-bar{background:rgba(0,0,0,.35);padding:14px 16px;font-size:11px;color:#E8CDA3;display:flex;justify-content:space-between;gap:10px;letter-spacing:.08em}
+.cam-bar span{white-space:nowrap}
 .app-feats{display:flex;flex-direction:column;gap:8px}
 .feat{
   border:1px solid rgba(246,227,194,.16);border-radius:18px;padding:24px 26px;
@@ -504,12 +507,7 @@ footer{border-top:1px solid var(--hairline);background:var(--paper-deep);padding
           <div class="cam-view">
             <span class="live-tag"><span class="live-dot"></span>LIVE</span>
             <span class="cam-time">14:22:07</span>
-            <svg viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M40 118c-8-22 2-58 32-74 11-6 18-8 30-8 36 0 61 25 61 61 0 13-4 24-13 31-16 14-45 17-67 12" stroke="#F0C88C" stroke-width="3.5" stroke-linecap="round"/>
-              <path d="M69 44l-5-18 18 9M105 38l8-16 10 18" stroke="#F0C88C" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M81 66c0 3 2 4 4 4M113 64c0 3 2 4 4 4M95 80c2 3 7 3 9 0" stroke="#F0C88C" stroke-width="3.5" stroke-linecap="round"/>
-              <path d="M40 118c-3 14 3 24 16 24 28 0 14-21 40-21" stroke="#F0C88C" stroke-width="3.5" stroke-linecap="round"/>
-            </svg>
+            <img class="cam-photo" src="assets/app/livecam.jpg?v=1" alt="即時影像：狗狗在客廳開心吐舌">
           </div>
           <div class="cam-bar"><span>客廳・攝影機 01</span><span>保姆 Yuki 服務中</span></div>
         </div>
