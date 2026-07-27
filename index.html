@@ -310,7 +310,17 @@ section{padding:clamp(72px,10vw,120px) 0}
 @media(max-width:920px){.mem-grid{grid-template-columns:1fr;max-width:520px}}
 
 /* ---------- final cta ---------- */
-.final{text-align:center;padding-bottom:clamp(80px,12vw,140px)}
+.final{
+  text-align:center;padding-bottom:clamp(80px,12vw,140px);position:relative;
+  background:url("assets/bg/final-cat.jpg?v=1") center 30%/cover no-repeat;
+}
+.final::before{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(90deg,rgba(251,247,239,.62) 0%,rgba(251,247,239,.58) 52%,rgba(251,247,239,.2) 76%,rgba(251,247,239,.05) 100%),
+    linear-gradient(180deg,var(--paper) 0%,rgba(251,247,239,0) 22%,rgba(251,247,239,0) 80%,var(--paper) 100%);
+}
+.final .wrap{position:relative;z-index:1}
 .final h2{font-size:clamp(30px,4.6vw,50px);margin-bottom:18px}
 .final p{color:var(--ink-soft);margin-bottom:38px}
 .paw-trail{display:flex;justify-content:center;gap:18px;margin-bottom:34px;font-size:15px;color:var(--wood)}
