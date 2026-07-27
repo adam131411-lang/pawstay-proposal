@@ -114,6 +114,12 @@ nav{
 .hero-note b{color:var(--wood-deep);font-weight:500}
 .hero-art{position:relative;display:flex;justify-content:center}
 .hero-art svg{width:min(100%,420px);height:auto}
+.hero-photo{
+  width:min(100%,430px);height:auto;display:block;
+  filter:drop-shadow(0 28px 34px rgba(163,98,29,.28));
+  -webkit-mask-image:linear-gradient(180deg,#000 78%,transparent 98%);
+  mask-image:linear-gradient(180deg,#000 78%,transparent 98%);
+}
 .tatezumi{
   position:absolute;right:0;top:50%;transform:translateY(-50%);
   writing-mode:vertical-rl;font-family:var(--serif);letter-spacing:.5em;
@@ -121,7 +127,7 @@ nav{
 }
 @media(max-width:880px){
   .hero-grid{grid-template-columns:1fr}
-  .hero-art{order:-1}.hero-art svg{width:min(70%,300px)}
+  .hero-art{order:-1}.hero-art svg,.hero-art .hero-photo{width:min(70%,300px)}
   .tatezumi{display:none}
 }
 
@@ -354,20 +360,8 @@ footer{border-top:1px solid var(--hairline);background:var(--paper-deep);padding
       </div>
     </div>
     <div class="hero-art rv" style="--d:2">
-      <!-- 蜷睡的貓：單線插畫 -->
-      <svg viewBox="0 0 400 340" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="蜷睡的貓咪插畫">
-        <ellipse cx="200" cy="296" rx="150" ry="16" fill="#F3D9AC"/>
-        <path d="M96 230c-14-40 2-108 58-138 20-11 34-14 56-14 66 0 112 46 112 112 0 24-8 44-24 58-30 26-84 30-124 22" stroke="#A3621D" stroke-width="5" stroke-linecap="round"/>
-        <path d="M150 92l-10-34 34 16" stroke="#A3621D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M216 80l14-30 18 34" stroke="#A3621D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M172 132c0 5 3 8 8 8M232 128c0 5 3 8 8 8" stroke="#A3621D" stroke-width="5" stroke-linecap="round"/>
-        <path d="M198 158c4 6 12 6 16 0" stroke="#A3621D" stroke-width="5" stroke-linecap="round"/>
-        <path d="M96 230c-6 26 6 44 30 44 52 0 26-38 74-38" stroke="#A3621D" stroke-width="5" stroke-linecap="round"/>
-        <path d="M330 208c26 10 30 42 6 56-16 9-34 6-46-6" stroke="#DFA04E" stroke-width="5" stroke-linecap="round"/>
-        <circle cx="330" cy="110" r="4" fill="#E8A24E"/>
-        <circle cx="352" cy="88" r="3" fill="#E8A24E" opacity=".7"/>
-        <circle cx="344" cy="132" r="2.5" fill="#E8A24E" opacity=".5"/>
-      </svg>
+      <!-- Hero 主視覺照片 -->
+      <img class="hero-photo" src="assets/hero/puppy.png?v=2" alt="開心的黃金獵犬幼犬">
       <span class="tatezumi">安心・在宅・陪伴</span>
     </div>
   </div>
