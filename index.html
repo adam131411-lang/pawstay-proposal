@@ -12,15 +12,15 @@
 <style>
 :root{
   --paper:#FBF7EF;
-  --paper-deep:#F6ECDB;
+  --paper-deep:#F8EBD0;
   --paper-card:#FFFDF8;
   --ink:#3F2D1A;
   --ink-soft:#8D7458;
   --wood:#DFA04E;
   --wood-deep:#A3621D;
   --wood-mist:#F6E3C2;
-  --clay:#B06A15;
-  --clay-deep:#8F5510;
+  --clay:#C87A16;
+  --clay-deep:#A55F0D;
   --night:#342414;
   --hairline:rgba(163,98,29,.22);
   --serif:"Fraunces","Noto Serif TC",serif;
@@ -101,10 +101,10 @@ nav{
 }
 .hero-arc{
   position:absolute;right:-14vw;top:8vh;width:56vw;max-width:760px;aspect-ratio:1;
-  border-radius:50%;background:radial-gradient(circle at 34% 32%,#F9E9CD 0%,#F3D9AC 46%,transparent 72%);
+  border-radius:50%;background:radial-gradient(circle at 34% 32%,#FBE7BD 0%,#F6D293 46%,transparent 72%);
   filter:blur(2px);z-index:0;
 }
-.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:40px;align-items:center}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center}
 .hero h1{font-size:clamp(34px,5vw,58px);font-weight:500;margin-bottom:26px}
 .hero h1 .accent{color:var(--wood-deep);font-style:italic}
 .hero-sub{color:var(--ink-soft);font-size:16.5px;max-width:30em;margin-bottom:40px}
@@ -115,9 +115,16 @@ nav{
 .hero-art{position:relative;display:flex;justify-content:center}
 .hero-art svg{width:min(100%,420px);height:auto}
 .hero-photo{
-  width:min(100%,430px);height:auto;display:block;
+  width:min(100%,460px);height:auto;max-height:78vh;object-fit:contain;display:block;
+  transform:rotate(-2deg);
   filter:drop-shadow(0 28px 34px rgba(163,98,29,.28));
 }
+.spark{position:absolute;color:var(--wood);z-index:2;line-height:1;animation:twinkle 2.6s ease-in-out infinite}
+.spark.s1{top:5%;left:3%;font-size:32px;transform:rotate(-10deg)}
+.spark.s2{top:36%;right:7%;font-size:20px;color:#F2BE6C;animation-delay:.9s}
+.spark.s3{bottom:9%;left:-1%;font-size:25px;transform:rotate(14deg);animation-delay:1.6s}
+@keyframes twinkle{0%,100%{opacity:1}50%{opacity:.4}}
+@media (prefers-reduced-motion:reduce){.spark{animation:none}}
 .tatezumi{
   position:absolute;right:0;top:50%;transform:translateY(-50%);
   writing-mode:vertical-rl;font-family:var(--serif);letter-spacing:.5em;
@@ -171,7 +178,7 @@ section{padding:clamp(72px,10vw,120px) 0}
   transition:transform .3s,box-shadow .3s;
 }
 .tier:hover{transform:translateY(-5px);box-shadow:0 26px 48px -30px rgba(163,98,29,.5)}
-.tier.featured{background:var(--night);color:#F7EDDC;border-color:var(--night);transform:scale(1.03)}
+.tier.featured{background:linear-gradient(170deg,#F7C271 0%,#E8A24E 100%);color:#4A3018;border-color:#E8A24E;transform:scale(1.03)}
 .tier.featured:hover{transform:scale(1.03) translateY(-5px)}
 .tier .pop{
   position:absolute;top:-13px;left:50%;transform:translateX(-50%);
@@ -179,21 +186,21 @@ section{padding:clamp(72px,10vw,120px) 0}
   padding:5px 16px;border-radius:999px;white-space:nowrap;
 }
 .tier-name{font-family:var(--serif);font-size:13px;letter-spacing:.3em;color:var(--wood-deep);margin-bottom:6px}
-.tier.featured .tier-name{color:var(--wood-mist)}
+.tier.featured .tier-name{color:#8F5510}
 .tier h3{font-size:24px;margin-bottom:4px}
 .tier .dur{font-size:13px;color:var(--ink-soft);margin-bottom:18px}
-.tier.featured .dur{color:#C9AE89}
+.tier.featured .dur{color:#82581E}
 .tier .price{font-family:var(--serif);font-size:34px;margin-bottom:24px}
 .tier .price small{font-size:14px;font-family:var(--sans);color:var(--ink-soft);margin-left:4px}
-.tier.featured .price small{color:#C9AE89}
+.tier.featured .price small{color:#82581E}
 .tier ul{list-style:none;flex:1;margin-bottom:28px}
 .tier li{padding:9px 0;font-size:14px;border-bottom:1px dashed var(--hairline);display:flex;gap:10px;align-items:baseline}
 .tier li::before{content:"·";color:var(--wood);font-weight:700}
 .tier li.hl{color:var(--wood-deep);font-weight:500}
-.tier.featured li{border-color:rgba(246,227,194,.18)}
-.tier.featured li.hl{color:#F0C88C}
+.tier.featured li{border-color:rgba(74,48,24,.22)}.tier.featured li::before{color:#8F5510}
+.tier.featured li.hl{color:#6B3600}
 .badge{display:inline-block;background:var(--wood-mist);color:var(--wood-deep);font-size:11px;letter-spacing:.1em;padding:2px 10px;border-radius:999px;margin-left:6px;vertical-align:1px}
-.tier.featured .badge{background:rgba(246,227,194,.16);color:#F0C88C}
+.tier.featured .badge{background:rgba(255,255,255,.4);color:#8F5510}
 .tier .btn{justify-content:center}
 @media(max-width:880px){.tier-grid{grid-template-columns:1fr}.tier.featured{transform:none}}
 
@@ -359,7 +366,8 @@ footer{border-top:1px solid var(--hairline);background:var(--paper-deep);padding
     </div>
     <div class="hero-art rv" style="--d:2">
       <!-- Hero 主視覺照片 -->
-      <img class="hero-photo" src="assets/hero/cat.png?v=1" alt="慵懶側躺的貓咪">
+      <span class="spark s1">✦</span><span class="spark s2">✦</span><span class="spark s3">✦</span>
+      <img class="hero-photo" src="assets/hero/dog.png?v=1" alt="吐舌開心的米格魯">
       <span class="tatezumi">安心・在宅・陪伴</span>
     </div>
   </div>
