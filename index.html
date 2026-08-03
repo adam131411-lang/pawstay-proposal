@@ -202,6 +202,17 @@ section{padding:clamp(72px,10vw,120px) 0}
 .badge{display:inline-block;background:var(--wood-mist);color:var(--wood-deep);font-size:11px;letter-spacing:.1em;padding:2px 10px;border-radius:999px;margin-left:6px;vertical-align:1px}
 .tier.featured .badge{background:rgba(255,255,255,.4);color:#8F5510}
 .tier .btn{justify-content:center}
+.pack-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:34px}
+.pack{background:var(--paper);border:1px solid var(--hairline);border-radius:22px;padding:32px 30px}
+.pack h4{font-family:var(--serif);font-size:19px;margin-bottom:2px}
+.pack .tag{font-size:11.5px;letter-spacing:.2em;color:var(--wood-deep);font-family:var(--serif)}
+.pack .p-price{font-family:var(--serif);font-size:28px;margin:8px 0 2px}
+.pack .p-price small{font-size:13px;font-family:var(--sans);color:var(--ink-soft)}
+.pack .strike{text-decoration:line-through;color:var(--ink-soft);font-size:14px;margin-left:8px;font-family:var(--sans)}
+.pack p{font-size:13.5px;color:var(--ink-soft)}
+.surge-note{margin-top:24px;font-size:13px;color:var(--ink-soft);text-align:center;letter-spacing:.04em;line-height:2}
+.surge-note b{color:var(--wood-deep);font-weight:500}
+@media(max-width:820px){.pack-grid{grid-template-columns:1fr}}
 @media(max-width:880px){.tier-grid{grid-template-columns:1fr}.tier.featured{transform:none}}
 
 /* ---------- first visit ---------- */
@@ -368,8 +379,8 @@ footer{border-top:1px solid var(--hairline);background:var(--paper-deep);padding
       <h1 class="rv" style="--d:1">你不在家的日子，<br>牠依然<span class="accent">被好好愛著</span>。</h1>
       <p class="hero-sub rv" style="--d:2">爪爪日常 Pawfect Life——到府照顧・陪伴散步・即時影像回傳。貓、狗與特殊寵物的專屬保姆，現正服務台北市・新北市。</p>
       <div class="hero-ctas rv" style="--d:3">
-        <a class="btn btn-primary" href="pet-intake.html">NT$690 預約首次體驗 <span class="arr">→</span></a>
-        <a class="btn btn-ghost" href="#tiers">查看服務等級</a>
+        <a class="btn btn-primary" href="pet-intake.html">$400 起・預約到府照護 <span class="arr">→</span></a>
+        <a class="btn btn-ghost" href="#tiers">查看公開價目表</a>
       </div>
       <div class="hero-note rv" style="--d:4">
         <span><b>◍</b> 保姆 100% 完訓認證</span>
@@ -420,8 +431,8 @@ footer{border-top:1px solid var(--hairline);background:var(--paper-deep);padding
       <a class="species-card rv" href="#tiers">
         <img class="glyph" src="assets/species/exotic.png?v=4" alt="鳥類線稿插畫">
         <h3>特殊寵物照顧</h3>
-        <p>兔、鼠、鳥、爬蟲——溫溼度、飲食與環境細節，照著牠的物種習性來，不憑感覺。</p>
-        <span class="more">了解異寵服務 →</span>
+        <p>兔、鼠、鳥、爬蟲——溫溼度、飲食與環境細節，照著牠的物種習性來（服務規劃中，採客製詢價）。</p>
+        <span class="more">客製詢價 →</span>
       </a>
     </div>
   </div>
@@ -431,54 +442,72 @@ footer{border-top:1px solid var(--hairline);background:var(--paper-deep);padding
 <section id="tiers">
   <div class="wrap">
     <div class="sec-head rv">
-      <p class="eyebrow">Service Tiers</p>
-      <h2 class="sec-title">服務等級，清清楚楚</h2>
-      <p class="sec-lead">按次計費、免費註冊即可預約。每一級包含什麼、多少錢，我們先寫清楚。</p>
+      <p class="eyebrow">Transparent Pricing</p>
+      <h2 class="sec-title">價目表，全部公開</h2>
+      <p class="sec-lead">全品項牌價公告、犬隻依體型三級距、尖峰加價至少提前 14 天公告——價格透明，是我們對「糾紛」的正面回應。</p>
     </div>
     <div class="tier-grid">
       <div class="tier rv">
-        <div class="tier-name">LITE</div>
-        <h3>輕心照顧</h3>
-        <div class="dur">30 分鐘／次・適合日常短暫外出</div>
-        <div class="price">NT$450<small>起／次</small></div>
+        <div class="tier-name">CAT CARE</div>
+        <h3>喵皇居家無憂照護</h3>
+        <div class="dur">30 分鐘／次・依「次」計費</div>
+        <div class="price">$400<small>／次</small></div>
         <ul>
-          <li>餵食、換水、清理砂盆／籠舍</li>
-          <li>基礎陪伴與狀態觀察</li>
-          <li>圖文照顧日誌回報</li>
-          <li>離場安全檢查清單</li>
+          <li>清洗食盆・更換新鮮飼料與飲水</li>
+          <li>清理貓砂盆並記錄排泄狀況</li>
+          <li>陪玩與梳毛</li>
+          <li>狀態回報＋照片</li>
+          <li class="hl">多貓家庭：每加一隻 +$100／次</li>
         </ul>
-        <a class="btn btn-ghost" href="pet-intake.html">以此等級預約</a>
+        <a class="btn btn-ghost" href="pet-intake.html">預約貓咪照護</a>
       </div>
       <div class="tier featured rv">
-        <div class="pop">最多人選擇</div>
-        <div class="tier-name">PLUS</div>
-        <h3>安心照顧</h3>
-        <div class="dur">60 分鐘／次・照顧＋陪伴一次到位</div>
-        <div class="price">NT$780<small>起／次</small></div>
+        <div class="pop">依體型三級距</div>
+        <div class="tier-name">DOG WALK</div>
+        <h3>汪汪活力放電散步</h3>
+        <div class="dur">基本 1 小時・可半小時累加</div>
+        <div class="price">$600<small>起／小時</small></div>
         <ul>
-          <li>含 LITE 全部項目</li>
-          <li>陪玩互動／狗狗散步 30 分鐘</li>
-          <li class="hl">到府即架即時影像 Live Feed</li>
-          <li class="hl">散步全程 GPS 定位追蹤</li>
-          <li>餵藥・保健品（口服）</li>
+          <li>小型犬（15kg 以下）$600／時</li>
+          <li>中大型犬（15–30kg）$700／時</li>
+          <li>超大型犬（30kg 以上）$800／時</li>
+          <li>雙扣牽繩・清理排泄・擦腳進屋</li>
+          <li class="hl">GPS 軌跡＋照片全程回報</li>
+          <li>第二隻同行 +$200／時（至多 2 隻）</li>
         </ul>
-        <a class="btn btn-primary" href="pet-intake.html">以此等級預約</a>
+        <a class="btn btn-primary" href="pet-intake.html">預約狗狗散步</a>
       </div>
       <div class="tier rv">
-        <div class="tier-name">SIGNATURE</div>
-        <h3>傾心照顧</h3>
-        <div class="dur">90 分鐘起／次・長差旅與高需求照護</div>
-        <div class="price">NT$1,280<small>起／次</small></div>
+        <div class="tier-name">ADD-ONS</div>
+        <h3>加值與接送</h3>
+        <div class="dur">可附加於任一訂單</div>
+        <div class="price">+$50<small>起</small></div>
         <ul>
-          <li>含 PLUS 全部項目</li>
-          <li class="hl">到府環境安全評估 <span class="badge">特色</span></li>
-          <li class="hl">專屬監視器安裝 <span class="badge">特色</span></li>
-          <li>特殊照護（皮下輸液・傷口護理）</li>
-          <li>客製照顧報告與行為紀錄</li>
+          <li class="hl">餵藥・皮下輸液 +$50～250／次 <span class="badge">醫療級保母</span></li>
+          <li>洗澡吹乾 +$300 起・深層梳毛 +$100</li>
+          <li>剪指甲清耳 +$100・活動區深度清潔 +$100</li>
+          <li>陪同就醫 $500／時・用品代購跑腿 $100</li>
+          <li>客製寫真 +$200・節慶小佈置 +$300</li>
+          <li>寵物接送：$100／km 起（依體型）</li>
         </ul>
-        <a class="btn btn-ghost" href="pet-intake.html">以此等級預約</a>
+        <a class="btn btn-ghost" href="pet-intake.html">加購諮詢</a>
       </div>
     </div>
+    <div class="pack-grid">
+      <div class="pack rv">
+        <div class="tag">7-DAY PACK・CAT</div>
+        <h4>喵星人 7 日精緻留守</h4>
+        <div class="p-price">$2,520<small>／7 日</small><span class="strike">$2,800</span></div>
+        <p>長假出國安心方案——每日一訪 30 分鐘照護，定時清理、陪伴與回報，套票 9 折。</p>
+      </div>
+      <div class="pack rv">
+        <div class="tag">7-DAY PACK・DOG</div>
+        <h4>汪星人 7 日高能放電</h4>
+        <div class="p-price">$5,670<small>／7 日</small><span class="strike">$6,300</span></div>
+        <p>每日早晚各一訪，含餵食與 40 分鐘散步（小型犬價；中大型以上依級距另計），套票 9 折。</p>
+      </div>
+    </div>
+    <p class="surge-note rv">尖峰時段透明加價：<b>國定連假／春節 ×1.5</b>・<b>夜間清晨（22:00–07:00）+$150／次</b>・<b>跨區媒合（＞3km）+$30／km</b><br>所有動態加價至少提前 14 天公告——絕不臨時漲價、絕不拒收。</p>
   </div>
 </section>
 
@@ -500,8 +529,8 @@ footer{border-top:1px solid var(--hairline);background:var(--paper-deep);padding
         <p>與您配對的保姆先視訊聊聊，確認彼此合拍，有任何疑慮都可以換人或喊停。</p>
       </div>
       <div class="step rv">
-        <h3>NT$690 首次體驗</h3>
-        <p>含 60 分鐘照顧＋到府環境安全快評。體驗後不滿意，首次費用全額退還。</p>
+        <h3>首次預約，公開牌價</h3>
+        <p>貓咪照護 $400／次、狗狗散步 $600／時起——所見即所付，沒有隱藏費用。首次不滿意，全額退還。</p>
       </div>
     </div>
     <p class="guarantee rv">首次體驗不滿意，7 天內不需理由全額退費</p>
@@ -631,50 +660,47 @@ footer{border-top:1px solid var(--hairline);background:var(--paper-deep);padding
   <div class="wrap">
     <div class="sec-head rv" style="text-align:center;margin-left:auto;margin-right:auto">
       <p class="eyebrow" style="justify-content:center">Membership</p>
-      <h2 class="sec-title">免費開始，值得再深入</h2>
-      <p class="sec-lead" style="margin:0 auto">註冊完全免費、按次付費即可使用全部服務。需要更高頻率照顧的家庭，CARE CLUB 提供月費與年費兩種方案——年繳最划算。</p>
+      <h2 class="sec-title">免費開始，訂閱更划算</h2>
+      <p class="sec-lead" style="margin:0 auto">免費註冊即可依牌價預約全部服務。訂閱會員是純權益制——消費回饋爪爪幣（1 幣＝1 元）、優先媒合與專屬保障，用得越多省得越多。</p>
     </div>
     <div class="mem-grid">
       <div class="mem rv">
-        <div class="kind">FREE MEMBER</div>
-        <h3>免費會員</h3>
-        <div class="fee">NT$0・按次計費</div>
+        <div class="kind">MONTHLY</div>
+        <h3>萌爪體驗家</h3>
+        <div class="fee">$299／月・適合常態加班族、首次嘗試</div>
         <ul>
-          <li>建立完整寵物檔案</li>
-          <li>線上預約全部服務等級</li>
-          <li>照顧日誌與服務紀錄保存</li>
-          <li>APP 即時影像・GPS（服務期間）</li>
+          <li>消費 3% 爪爪幣回饋</li>
+          <li>免每筆 2% 金流手續費</li>
+          <li>每月 $50 折價券 × 2（限當月）</li>
         </ul>
-        <a class="btn btn-ghost" href="pet-intake.html" style="width:100%;justify-content:center">免費註冊</a>
+        <a class="btn btn-ghost" href="pet-intake.html" style="width:100%;justify-content:center">月度訂閱</a>
       </div>
       <div class="mem club rv">
-        <div class="kind">CARE CLUB</div>
-        <h3>月費會員</h3>
-        <div class="fee">NT$399／月・服務按次計費享會員價 92 折</div>
+        <div class="kind">QUARTERLY</div>
+        <h3>金爪愛寵官</h3>
+        <div class="fee">$799／季・適合季度出差、週末出遊</div>
         <ul>
-          <li>專屬固定保姆，不用每次重新適應</li>
-          <li>連假・過年優先預約權</li>
-          <li>專屬監視器免費安裝與保管</li>
-          <li>每月寵物狀態紀錄摘要</li>
-          <li>專人客服通道（LINE 直通）</li>
+          <li>消費 5% 爪爪幣回饋</li>
+          <li>金牌保姆（4.8★↑）優先媒合，等待縮短 50%</li>
+          <li>智慧藍牙密碼鎖免費租借（退訂歸還）</li>
         </ul>
-        <a class="btn btn-ghost" href="pet-intake.html" style="width:100%;justify-content:center">了解 CARE CLUB</a>
+        <a class="btn btn-ghost" href="pet-intake.html" style="width:100%;justify-content:center">季度訂閱</a>
       </div>
       <div class="mem annual rv">
-        <div class="best">最划算・省下兩個月</div>
-        <div class="kind">CARE CLUB・ANNUAL</div>
-        <h3>年費會員</h3>
-        <div class="fee">NT$3,990／年（≈月付 NT$333）・服務會員價 88 折</div>
+        <div class="best">最划算・連假免加價</div>
+        <div class="kind">ANNUAL</div>
+        <h3>尊榮白金爪主</h3>
+        <div class="fee">$2,499／年・適合高頻使用的重度爪主</div>
         <ul>
-          <li>含月費會員全部權益</li>
-          <li>服務會員價再降至 88 折</li>
-          <li>每年 1 次免費到府環境安全評估</li>
-          <li>連假・過年最高優先預約順位</li>
-          <li>寵物生日禮＋年度健康摘要報告</li>
+          <li>消費 8% 爪爪幣回饋</li>
+          <li>連假提前 30 天優先預約＋免動態加價</li>
+          <li>意外事故額外賠付最高 $50 萬（限平台歸責，依理賠條件）</li>
+          <li>特約獸醫線上圖文諮詢（每月 2 次）</li>
         </ul>
-        <a class="btn btn-primary" href="pet-intake.html" style="width:100%;justify-content:center">成為年費會員</a>
+        <a class="btn btn-primary" href="pet-intake.html" style="width:100%;justify-content:center">年度訂閱</a>
       </div>
     </div>
+    <p class="surge-note rv" style="margin-top:26px">優惠疊算順序：<b>會員權益 ＞ 套票折扣 ＞ 動態加價</b>——系統自動套用，不會疊出爭議。</p>
   </div>
 </section>
 
