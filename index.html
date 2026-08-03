@@ -320,6 +320,32 @@ section{padding:clamp(72px,10vw,120px) 0}
 .mem.club li::before{content:"●"}
 @media(max-width:920px){.mem-grid{grid-template-columns:1fr;max-width:520px}}
 
+/* ---------- faq ---------- */
+#faq{background:var(--paper-card);border-top:1px solid var(--hairline)}
+.faq-cat{margin-bottom:42px}
+.faq-cat-title{font-size:19px;margin-bottom:8px;color:var(--wood-deep);font-family:var(--serif);letter-spacing:.04em}
+details.qa{border-bottom:1px dashed var(--hairline)}
+.qa summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:17px 4px;font-weight:500;font-size:15.5px}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary::after{content:"＋";color:var(--wood-deep);font-size:17px;flex-shrink:0}
+.qa[open] summary::after{content:"－"}
+.qa-a{padding:2px 4px 22px;color:var(--ink-soft);font-size:14.5px;line-height:1.95}
+.qa-a p+p,.qa-a table+p,.qa-a p+table{margin-top:10px}
+.qa-a b{color:var(--ink);font-weight:500}
+.qa-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13.5px}
+.qa-table th,.qa-table td{border:1px solid var(--hairline);padding:8px 12px;text-align:left}
+.qa-table th{background:var(--wood-mist);color:var(--ink);font-weight:500}
+.cmp-block{margin-bottom:56px}
+.cmp-scroll{overflow-x:auto;border:1px solid var(--hairline);border-radius:18px}
+.cmp-table{width:100%;min-width:660px;border-collapse:collapse;font-size:14px;background:var(--paper)}
+.cmp-table th,.cmp-table td{padding:12px 16px;border-bottom:1px solid var(--hairline);text-align:left;vertical-align:top}
+.cmp-table tr:last-child td{border-bottom:none}
+.cmp-table thead th{background:var(--wood-mist);font-weight:600}
+.cmp-table td:first-child{font-weight:500;white-space:nowrap;color:var(--wood-deep)}
+.cmp-table th:nth-child(2),.cmp-table td:nth-child(2){background:rgba(232,162,78,.08)}
+.cmp-sum{margin-top:18px;text-align:center;font-size:15.5px;color:var(--ink-soft)}
+.cmp-sum b{color:var(--wood-deep)}
+
 /* ---------- final cta ---------- */
 .final{
   text-align:center;padding-bottom:clamp(80px,12vw,140px);position:relative;
@@ -704,6 +730,86 @@ footer{border-top:1px solid var(--hairline);background:var(--paper-deep);padding
   </div>
 </section>
 
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">FAQ</p>
+      <h2 class="sec-title">你想問的，我們先答</h2>
+      <p class="sec-lead">從「你們是誰」到「萬一出事怎麼辦」——這裡沒有藏在小字裡的規則，只有直話直說。</p>
+    </div>
+
+    <div class="cmp-block rv">
+      <h3 class="faq-cat-title">到府照護和寵物旅館，差在哪？</h3>
+      <div class="cmp-scroll">
+        <table class="cmp-table">
+          <thead><tr><th>比較項目</th><th>🐾 爪爪日常到府照護</th><th>🏨 傳統寵物旅館</th></tr></thead>
+          <tbody>
+            <tr><td>照護環境</td><td>留在最熟悉的家，作息不變</td><td>陌生籠舍，需要重新適應</td></tr>
+            <tr><td>環境壓力</td><td>零換環境壓力，敏感、高齡寵物友善</td><td>易產生分離焦慮與應激反應</td></tr>
+            <tr><td>交叉感染</td><td>單獨照護，不接觸其他動物</td><td>多寵共處，感染風險較高</td></tr>
+            <tr><td>照護透明度</td><td>GPS 軌跡＋照片影像即時回報，隨時看得到</td><td>多數無法即時得知寵物狀況</td></tr>
+            <tr><td>接送奔波</td><td>保母到府，你零接送</td><td>飼主自行接送來回</td></tr>
+            <tr><td>價格</td><td>全品項牌價公開，單次 $400 起</td><td>常見價格不透明、易生糾紛</td></tr>
+            <tr><td>假期供給</td><td>加價提前 14 天公告；年度會員免假期加價</td><td>年節易坐地起價、爆滿拒收</td></tr>
+            <tr><td>客製化</td><td>照牠的習慣餵食、用藥、陪玩</td><td>統一作息、集中管理</td></tr>
+            <tr><td>適合情境</td><td>高齡、慢性病、敏感型寵物；多貓家庭；短中期外出</td><td>需 24 小時人員在場的特殊狀況</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="cmp-sum">一句話總結：旅館是把寵物送去適應環境，<b>我們是讓照護來適應寵物</b>。</p>
+    </div>
+
+    <div class="faq-cat rv">
+      <h3 class="faq-cat-title">認識爪爪日常</h3>
+      <details class="qa"><summary>爪爪日常是寵物旅館嗎？</summary><div class="qa-a"><p>剛好相反——我們不把毛孩帶走，是把照顧的人帶到你家。牠睡自己的窩、用自己的碗、走每天散步的那條路，只是多了一位受過訓練的保母。沒有籠子，沒有陌生環境，也不會接觸別人家的動物。</p></div></details>
+      <details class="qa"><summary>怎麼預約？多快能排到保母？</summary><div class="qa-a"><p>填好寵物檔案、選好時間送出，系統馬上通知你家方圓 3 公里內通過審查的保母。市區通常很快就有人接單；連假是熱門時段，建議提早幾天預約——年度會員可以提前 30 天先卡位。</p></div></details>
+      <details class="qa"><summary>服務範圍在哪裡？</summary><div class="qa-a"><p>現在跑台北市和新北市。其他地區正在擴點，留下聯絡方式，開放到你家我們第一個通知你。</p></div></details>
+      <details class="qa"><summary>會不會臨時漲價？連假會被坐地起價嗎？</summary><div class="qa-a"><p>不會。所有價格都印在價目表上；連假要加價（例如春節 ×1.5）也會提前至少 14 天公告。說好的價格，就是結帳的價格——年節坐地起價、爆滿拒收那一套，我們開這個平台就是為了淘汰它。</p></div></details>
+      <details class="qa"><summary>怎麼付款？卡片資料安全嗎？</summary><div class="qa-a"><p>服務完成後信用卡自動扣款，你不用準備現金。卡號由通過國際 PCI-DSS 認證的第三方金流加密保管，我們的資料庫裡沒有你的完整卡號——想外洩都沒得洩。</p></div></details>
+      <details class="qa"><summary>我要如何取消或改期？會被收費嗎？</summary><div class="qa-a">
+        <p>原則很簡單：<b>服務開始前 24 小時（含）以前，取消與改期完全免費。</b></p>
+        <table class="qa-table">
+          <thead><tr><th>一般訂單</th><th>取消</th><th>改期</th></tr></thead>
+          <tbody>
+            <tr><td>開始前 24 小時以前</td><td>全額退款</td><td>免費改期（每筆以 2 次為限）</td></tr>
+            <tr><td>開始前 24 小時以內</td><td>退還 50%</td><td>視同取消重訂（退 50% 後重新預約）</td></tr>
+            <tr><td>服務開始後／保母已到府</td><td>不予退款</td><td>—</td></tr>
+          </tbody>
+        </table>
+        <p><b>連假訂單</b>（春節及國定連假）：假期保母供給稀缺，免費取消／改期門檻提前至 <b>72 小時前</b>；72 小時內取消退還 50%。</p>
+        <p><b>長期套票</b>：未開始使用全額退款；已開始使用，已使用次數按單次原價計算、退還剩餘差額；剩餘場次可免費順延一次（原場次 24 小時前提出）。</p>
+        <p><b>特殊情況不受限制</b>：天災（依政府停班停課公告）、寵物或飼主緊急傷病（檢附證明），不論何時都能全額退款或免費改期；若是平台或保母原因取消，全額退款之外再補優先改期與折價券——你不需負擔任何費用。</p>
+        <p>退款一律退回原付款方式，7 個工作日內完成。</p>
+      </div></details>
+    </div>
+
+    <div class="faq-cat rv">
+      <h3 class="faq-cat-title">關於保母——陌生人進家門，安心嗎</h3>
+      <details class="qa"><summary>保母是什麼人？怎麼篩選的？</summary><div class="qa-a"><p>每一位都過了三關：實名認證加良民證、專業資格審查（獸醫相關科系或照護證照優先，沒有的要完成平台培訓）、最後通過模擬照護實作考核，才能開始接單。我們的標準只有一個——自己家的毛孩，敢不敢交給這個人。</p></div></details>
+      <details class="qa"><summary>到府的保母，我可以先認識嗎？</summary><div class="qa-a"><p>可以。預約確認後你會收到保母的個人頁：實名認證編號、專業背景、服務過幾次、其他飼主給的星等和評語，全部攤開。首次服務前還有免費 15 分鐘視訊——你和毛孩都先見過面，再決定要不要繼續。</p></div></details>
+      <details class="qa"><summary>鑰匙和門鎖密碼，要交出去嗎？</summary><div class="qa-a"><p>常用密碼不用給任何人。智慧鎖用戶由系統發「限時一次性密碼」，只在預約時段內有效，過時自動作廢；傳統鑰匙則放進我們提供的密碼鎖，安置在監視器照得到的地方。要怎麼安排，你說了算。</p></div></details>
+      <details class="qa"><summary>保母在我家做了什麼，我看得到嗎？</summary><div class="qa-a"><p>看得到，而且是全程。進門 GPS 打卡、餵食清砂逐項拍照回報、散步路線即時回傳，還能免費借一台攝影機（或串聯你家現有的），邊上班邊看牠。服務結束後影像檔留給你——要收藏還是刪除，由你決定。</p></div></details>
+      <details class="qa"><summary>可以順便請保母澆花、倒垃圾嗎？</summary><div class="qa-a"><p>訂單寫什麼、保母做什麼——界線清楚，對你我都是保障。真有需要的話，有官方的「居家順手服務」加購（+$50／次，10 分鐘內的澆花、收信、倒垃圾都算），下單時勾選就好。</p></div></details>
+    </div>
+
+    <div class="faq-cat rv">
+      <h3 class="faq-cat-title">萬一出事——保障怎麼運作</h3>
+      <details class="qa"><summary>毛孩突然不舒服怎麼辦？</summary><div class="qa-a"><p>保母一發現異常，馬上從 App 啟動緊急送醫：合作的 24 小時動物醫院開綠色通道優先看診，醫藥費由平台先墊，同一時間通知你和你留的緊急聯絡人。牠不會孤單等待，你也不會最後才知道。</p></div></details>
+      <details class="qa"><summary>家裡東西不見或損壞，找誰？</summary><div class="qa-a"><p>每一筆訂單都投保居家財產損失險和第三人責任險，出狀況由保險公司介入定損理賠——不是我們自己說了算。保母全程的拍照打卡和 GPS 紀錄都留存著，責任釐清有憑有據。年度會員另有最高 $50 萬的額外賠付。</p></div></details>
+      <details class="qa"><summary>保母能餵藥、打皮下點滴嗎？</summary><div class="qa-a"><p>餵藥、點眼藥可以，屬於醫療加值服務（+$50 起）。皮下輸液是侵入性處置，只有通過認證的「醫療級保母」能接，而且要有你的獸醫白紙黑字的指示。診斷的事我們不碰——那是獸醫師的專業，需要時直接轉介特約動物醫院。</p></div></details>
+      <details class="qa"><summary>狗狗外出散步，會不會掙脫走失？</summary><div class="qa-a"><p>每一趟散步都使用平台配發的防掙脫雙扣安全胸背帶，雙重固定；路線全程 GPS 回傳——牠走到巷口哪根電線桿，你在 App 上都看得到。</p></div></details>
+    </div>
+
+    <div class="faq-cat rv">
+      <h3 class="faq-cat-title">我需要做什麼</h3>
+      <details class="qa"><summary>第一次使用前，我要準備什麼？</summary><div class="qa-a"><p>三件事：花 5 分鐘填寵物檔案（牠的個性、健康狀況、絕對不能踩的雷）、備好牠慣用的食物和用品、告訴我們進出方式和家裡要注意的地方。你寫得越細，保母就照顧得越像你。</p></div></details>
+      <details class="qa"><summary>我家孩子怕生、護食、分離焦慮，能服務嗎？</summary><div class="qa-a"><p>能，而且這樣的孩子最該留在家裡照顧。檔案裡的個性標籤會幫牠配到有相應經驗的保母，首次視訊時你可以把牠的脾氣一次交代清楚。慢熟的孩子，我們就陪牠慢慢來。</p></div></details>
+      <details class="qa"><summary>跟熟識的保母私下約，比較便宜吧？</summary><div class="qa-a"><p>省下的是小錢，賠掉的是整套保障——保險理賠、緊急送醫代墊、數位存證、爪爪幣回饋，全都只在平台訂單內有效；私下交易若出了狀況，兩邊都求助無門。真的喜歡某位保母，訂閱會員可以優先指定，次次都是熟面孔，還有回饋可拿。</p></div></details>
+    </div>
+  </div>
+</section>
+
 <!-- ⑩ FINAL CTA -->
 <section class="final">
   <div class="wrap">
@@ -736,6 +842,7 @@ footer{border-top:1px solid var(--hairline);background:var(--paper-deep);padding
         <a href="#sitters">保姆團隊</a>
         <a href="#membership">CARE CLUB 會員</a>
         <a href="pet-intake.html">寵物檔案</a>
+        <a href="#faq">常見問題</a>
       </div>
       <div>
         <h4>信任</h4>
