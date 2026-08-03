@@ -337,14 +337,20 @@ details.qa{border-bottom:1px dashed var(--hairline)}
 .qa-table th{background:var(--wood-mist);color:var(--ink);font-weight:500}
 .cmp-block{margin-bottom:56px}
 .cmp-scroll{overflow-x:auto;border:1px solid var(--hairline);border-radius:18px}
-.cmp-table{width:100%;min-width:660px;border-collapse:collapse;font-size:14px;background:var(--paper)}
-.cmp-table th,.cmp-table td{padding:12px 16px;border-bottom:1px solid var(--hairline);text-align:left;vertical-align:top}
+.cmp-table{width:100%;min-width:760px;border-collapse:collapse;font-size:15.5px;background:var(--paper)}
+.cmp-table th,.cmp-table td{padding:17px 20px;border-bottom:1px solid var(--hairline);text-align:left;vertical-align:top;line-height:1.75}
 .cmp-table tr:last-child td{border-bottom:none}
-.cmp-table thead th{background:var(--wood-mist);font-weight:600}
-.cmp-table td:first-child{font-weight:500;white-space:nowrap;color:var(--wood-deep)}
-.cmp-table th:nth-child(2),.cmp-table td:nth-child(2){background:rgba(232,162,78,.08)}
-.cmp-sum{margin-top:18px;text-align:center;font-size:15.5px;color:var(--ink-soft)}
-.cmp-sum b{color:var(--wood-deep)}
+.cmp-table thead th{background:var(--wood-mist);font-weight:600;font-size:16px;white-space:nowrap}
+.cmp-table thead th:nth-child(2){background:#F3D9A2;border-top:3px solid var(--wood)}
+.cmp-table td:first-child{font-weight:600;white-space:nowrap;color:var(--wood-deep);font-size:15px}
+.cmp-table td.ours{background:rgba(232,162,78,.13);color:var(--ink);font-weight:500}
+.cmp-table td.theirs{color:var(--ink-soft)}
+.cmp-table .mk{display:inline-block;margin-right:9px;font-weight:700}
+.cmp-table td.ours .mk{color:#3A7D44}
+.cmp-table td.theirs .mk{color:#B2492C;opacity:.75}
+.cmp-table td.theirs .mk.neutral{color:var(--ink-soft);opacity:.8}
+.cmp-sum{margin-top:20px;text-align:center;font-size:17px;color:var(--ink-soft)}
+.cmp-sum b{color:var(--ink);background:linear-gradient(transparent 52%,#F6D293 52%);padding:0 3px}
 
 /* ---------- final cta ---------- */
 .final{
@@ -745,15 +751,15 @@ footer{border-top:1px solid var(--hairline);background:var(--paper-deep);padding
         <table class="cmp-table">
           <thead><tr><th>比較項目</th><th>🐾 爪爪日常到府照護</th><th>🏨 傳統寵物旅館</th></tr></thead>
           <tbody>
-            <tr><td>照護環境</td><td>留在最熟悉的家，作息不變</td><td>陌生籠舍，需要重新適應</td></tr>
-            <tr><td>環境壓力</td><td>零換環境壓力，敏感、高齡寵物友善</td><td>易產生分離焦慮與應激反應</td></tr>
-            <tr><td>交叉感染</td><td>單獨照護，不接觸其他動物</td><td>多寵共處，感染風險較高</td></tr>
-            <tr><td>照護透明度</td><td>GPS 軌跡＋照片影像即時回報，隨時看得到</td><td>多數無法即時得知寵物狀況</td></tr>
-            <tr><td>接送奔波</td><td>保母到府，你零接送</td><td>飼主自行接送來回</td></tr>
-            <tr><td>價格</td><td>全品項牌價公開，單次 $400 起</td><td>常見價格不透明、易生糾紛</td></tr>
-            <tr><td>假期供給</td><td>加價提前 14 天公告；年度會員免假期加價</td><td>年節易坐地起價、爆滿拒收</td></tr>
-            <tr><td>客製化</td><td>照牠的習慣餵食、用藥、陪玩</td><td>統一作息、集中管理</td></tr>
-            <tr><td>適合情境</td><td>高齡、慢性病、敏感型寵物；多貓家庭；短中期外出</td><td>需 24 小時人員在場的特殊狀況</td></tr>
+            <tr><td>照護環境</td><td class="ours"><span class="mk">✓</span>牠留在自己家，睡自己的窩、作息一分不變</td><td class="theirs"><span class="mk">✕</span>進籠舍住陌生環境，一切重新適應</td></tr>
+            <tr><td>環境壓力</td><td class="ours"><span class="mk">✓</span>零轉換壓力——敏感、高齡毛孩也能安心</td><td class="theirs"><span class="mk">✕</span>分離焦慮與緊迫應激的高風險</td></tr>
+            <tr><td>交叉感染</td><td class="ours"><span class="mk">✓</span>一對一單獨照護，零接觸其他動物</td><td class="theirs"><span class="mk">✕</span>多寵共處，寄生蟲與傳染病風險高</td></tr>
+            <tr><td>照護透明度</td><td class="ours"><span class="mk">✓</span>GPS＋照片影像即時回報，打開手機隨時看</td><td class="theirs"><span class="mk">✕</span>送進去像黑箱，狀況多半事後才知道</td></tr>
+            <tr><td>接送奔波</td><td class="ours"><span class="mk">✓</span>保母上門，你一趟都不用跑</td><td class="theirs"><span class="mk">✕</span>來回接送，連假塞車更折騰</td></tr>
+            <tr><td>價格</td><td class="ours"><span class="mk">✓</span>全品項牌價公開，單次 $400 起</td><td class="theirs"><span class="mk">✕</span>價格常不透明，結帳才知道多少錢</td></tr>
+            <tr><td>假期供給</td><td class="ours"><span class="mk">✓</span>加價提前 14 天公告，年度會員連假免加價</td><td class="theirs"><span class="mk">✕</span>年節坐地起價、爆滿拒收時有所聞</td></tr>
+            <tr><td>客製化</td><td class="ours"><span class="mk">✓</span>照牠的習慣餵食、用藥、陪玩——像你在家一樣</td><td class="theirs"><span class="mk">✕</span>統一作息、集中管理</td></tr>
+            <tr><td>適合情境</td><td class="ours"><span class="mk">✓</span>高齡、慢性病、敏感型寵物；多貓家庭；短中期外出</td><td class="theirs"><span class="mk neutral">○</span>需 24 小時人員在場的特殊狀況</td></tr>
           </tbody>
         </table>
       </div>
