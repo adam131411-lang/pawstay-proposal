@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>關於我們｜爪爪日常 Pawfect Life</title>
+<link rel="icon" type="image/png" href="assets/logo/logo-square.png?v=4">
+<link rel="apple-touch-icon" href="assets/logo/app-icon.png?v=4">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Noto+Serif+TC:wght@400;500;600&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBF7EF; --paper-deep:#F8EBD0; --paper-card:#FFFDF8;
+  --ink:#3F2D1A; --ink-soft:#8D7458;
+  --wood:#DFA04E; --wood-deep:#A3621D; --wood-mist:#F6E3C2;
+  --clay:#C87A16; --clay-deep:#A55F0D;
+  --hairline:rgba(163,98,29,.22);
+  --serif:"Fraunces","Noto Serif TC","Songti TC",serif; --sans:"Noto Sans TC","PingFang TC",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.85;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:999;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .47 0 0 0 0 .36 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+::selection{background:var(--wood-mist)}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+.wrap{max-width:980px;margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.4;letter-spacing:.02em}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(251,247,239,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--hairline)}
+.nav-inner{max-width:1120px;margin:0 auto;padding:0 clamp(20px,5vw,48px);height:72px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--serif);font-size:20px;font-weight:600;letter-spacing:.08em;display:flex;align-items:center;gap:10px;white-space:nowrap}
+.logo-img{height:30px;width:auto;display:block}
+.logo em{font-style:normal;font-family:var(--sans);font-size:12.5px;font-weight:500;color:var(--wood-deep);letter-spacing:.24em}
+.nav-right{display:flex;align-items:center;gap:22px;font-size:14px;letter-spacing:.08em}
+.nav-right a{color:var(--ink-soft)}
+.nav-right a:hover{color:var(--wood-deep)}
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:500;font-size:15px;letter-spacing:.06em;padding:15px 32px;border-radius:999px;cursor:pointer;border:1px solid transparent;transition:all .25s}
+.btn-primary{background:var(--clay);color:#FDF9F3;box-shadow:0 10px 24px -12px rgba(143,85,16,.5)}
+.btn-primary:hover{background:var(--clay-deep);transform:translateY(-2px)}
+.btn-ghost{border-color:var(--wood);color:var(--wood-deep)}
+.btn-ghost:hover{background:var(--wood-mist)}
+.nav-cta{font-size:13.5px;padding:10px 22px}
+@media(max-width:520px){.logo{font-size:17px}.logo em{display:none}.nav-right a.link{display:none}.nav-cta{font-size:12.5px;padding:9px 16px}}
+
+.eyebrow{font-family:var(--serif);font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--wood-deep);display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--wood)}
+.eyebrow.center{justify-content:center}
+.eyebrow.center::before{display:none}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
+.rv.in{opacity:1;transform:none}
+
+/* hero */
+.about-hero{padding:170px 0 90px;position:relative;text-align:center}
+.about-hero::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background-image:linear-gradient(rgba(163,98,29,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(163,98,29,.06) 1px,transparent 1px);
+  background-size:76px 76px;
+  -webkit-mask-image:linear-gradient(180deg,#000 55%,transparent);
+  mask-image:linear-gradient(180deg,#000 55%,transparent);
+}
+.about-hero h1{font-size:clamp(36px,6vw,60px);margin-bottom:26px}
+.about-hero h1 .accent{color:var(--wood-deep);font-style:italic}
+.about-hero p{color:var(--ink-soft);font-size:17px;max-width:32em;margin:0 auto}
+.spark{position:absolute;color:var(--wood);line-height:1;animation:twinkle 2.6s ease-in-out infinite}
+.spark.s1{top:130px;left:12%;font-size:30px;transform:rotate(-10deg)}
+.spark.s2{top:220px;right:10%;font-size:20px;color:#F2BE6C;animation-delay:.9s}
+@keyframes twinkle{0%,100%{opacity:1}50%{opacity:.4}}
+@media (prefers-reduced-motion:reduce){.spark{animation:none}}
+
+section{padding:clamp(60px,8vw,100px) 0}
+.sec-title{font-size:clamp(25px,3.2vw,36px);margin-bottom:16px}
+.sec-lead{color:var(--ink-soft);font-size:15.5px;max-width:36em}
+
+/* 品牌初衷 */
+.story{background:var(--paper-card);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
+.story-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(30px,5vw,70px);align-items:center}
+.story p{color:var(--ink-soft);font-size:15.5px}
+.story p+p{margin-top:16px}
+.story p b{color:var(--ink);font-weight:500}
+.story-photo{border-radius:24px;overflow:hidden;border:1px solid var(--hairline)}
+.story-photo img{display:block;width:100%;height:100%;object-fit:cover}
+@media(max-width:820px){.story-grid{grid-template-columns:1fr}}
+
+/* 三件相信的事 */
+.beliefs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;counter-reset:bf}
+.belief{background:var(--paper-card);border:1px solid var(--hairline);border-radius:22px;padding:36px 30px;counter-increment:bf;position:relative}
+.belief::before{content:"0" counter(bf);font-family:var(--serif);font-size:40px;font-weight:300;color:var(--wood-mist);position:absolute;top:20px;right:24px;line-height:1}
+.belief h3{font-size:18.5px;margin-bottom:10px;max-width:9em}
+.belief p{font-size:14px;color:var(--ink-soft)}
+@media(max-width:820px){.beliefs{grid-template-columns:1fr}}
+
+/* 四個核心價值 */
+.values{background:var(--paper-deep);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
+.value-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.value{background:var(--paper-card);border:1px solid var(--hairline);border-radius:20px;padding:30px 24px;text-align:center}
+.value .zh{font-family:var(--serif);font-size:26px;color:var(--wood-deep);display:block;margin-bottom:8px}
+.value p{font-size:13px;color:var(--ink-soft);line-height:1.8}
+@media(max-width:820px){.value-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* 家人標準帶 */
+.family-band{text-align:center;padding:clamp(70px,9vw,110px) 0;background:linear-gradient(170deg,#F7C271 0%,#E8A24E 100%)}
+.family-band h2{font-size:clamp(26px,4vw,42px);color:#4A3018;margin-bottom:14px}
+.family-band p{color:#6B4A1E;font-size:16px;max-width:30em;margin:0 auto}
+.family-band .paw{font-size:22px;margin-bottom:18px;display:block}
+
+/* 怎麼做到 */
+.hows{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.how{background:var(--paper-card);border:1px solid var(--hairline);border-radius:20px;padding:30px 28px;display:flex;gap:18px;align-items:flex-start}
+.how .glyph{font-size:24px;line-height:1.4}
+.how h3{font-size:16.5px;margin-bottom:6px}
+.how p{font-size:13.5px;color:var(--ink-soft)}
+.how a{color:var(--wood-deep);border-bottom:1px solid var(--wood);font-size:13px}
+@media(max-width:720px){.hows{grid-template-columns:1fr}}
+
+/* CTA */
+.about-cta{text-align:center}
+.about-cta h2{font-size:clamp(26px,4vw,40px);margin-bottom:14px}
+.about-cta p{color:var(--ink-soft);margin-bottom:34px}
+
+footer{border-top:1px solid var(--hairline);background:var(--paper-deep);padding:36px 0;font-size:13px;color:var(--ink-soft)}
+.foot-inner{max-width:980px;margin:0 auto;padding:0 clamp(20px,5vw,48px);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;align-items:center}
+.foot-links{display:flex;gap:22px;flex-wrap:wrap}
+.foot-links a:hover{color:var(--wood-deep)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="index.html"><img class="logo-img" src="assets/logo/logo.png?v=4" alt="爪爪日常 logo">爪爪日常 <em>PAWFECT LIFE</em></a>
+    <div class="nav-right">
+      <a class="link" href="index.html">回首頁</a>
+      <a class="link" href="index.html#faq">常見問題</a>
+      <a class="btn btn-primary nav-cta" href="pet-intake.html">預約到府照護</a>
+    </div>
+  </div>
+</nav>
+
+<header class="about-hero">
+  <span class="spark s1">✦</span><span class="spark s2">✦</span>
+  <div class="wrap">
+    <p class="eyebrow center rv">About Pawfect Life</p>
+    <h1 class="rv">牠不是寵物，<span class="accent">是家人</span>。</h1>
+    <p class="rv">所以我們用對待家人的標準照顧牠——用心陪伴、如實回報，把每一個細節，做到你在遠方也能安心。爪爪日常的一切，都從這句話開始。</p>
+  </div>
+</header>
+
+<section class="story">
+  <div class="wrap story-grid">
+    <div class="rv">
+      <p class="eyebrow">Our Story</p>
+      <h2 class="sec-title">我們為什麼存在</h2>
+      <p>爪爪日常誕生於一個很簡單的心情：<b>出門的人放不下心，在家的毛孩等得孤單。</b>加班的晚上、出差的一週、久違的旅行——你不該在「好好生活」和「牠有人顧」之間二選一。</p>
+      <p>我們不是要取代你的愛，<b>我們想成為你最強大的後盾。</b>讓通過三道審查的保母走進家門，讓牠睡自己的窩、走熟悉的散步路線、照原本的時間吃飯——你的每一天照常過，牠的每一天也是。</p>
+      <p>「Pawfect Life」的意思，是參與毛孩的每一天日常。日常很平凡，但對牠來說，<b>不變的日常就是最好的日子。</b></p>
+    </div>
+    <div class="story-photo rv">
+      <img src="assets/app/livecam.jpg?v=1" alt="在家中安心生活的狗狗">
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="rv" style="margin-bottom:44px">
+      <p class="eyebrow">What We Believe</p>
+      <h2 class="sec-title">我們相信的三件事</h2>
+    </div>
+    <div class="beliefs">
+      <div class="belief rv">
+        <h3>最好的照顧，就是留在原處</h3>
+        <p>不把毛孩帶離熟悉的家。沒有籠舍、沒有換環境的壓力、不接觸其他動物——敏感的、高齡的、慢性病的孩子，都能安穩過自己的日子。</p>
+      </div>
+      <div class="belief rv">
+        <h3>透明的資訊，才是信賴的基石</h3>
+        <p>GPS 進退場打卡、逐項拍照回報、散步軌跡即時回傳、攝影機免費租借。你看得到的每一刻，都是我們敢被檢驗的證明——距離不再是焦慮的來源。</p>
+      </div>
+      <div class="belief rv">
+        <h3>家人的標準，才是服務的標準</h3>
+        <p>每一位保母出門前都會問自己同一個問題：這樣的照顧，配得上「家人」兩個字嗎？配得上，才出發。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="values">
+  <div class="wrap">
+    <div class="rv" style="text-align:center;margin-bottom:40px">
+      <p class="eyebrow center">Core Values</p>
+      <h2 class="sec-title">四個字，說完我們的堅持</h2>
+    </div>
+    <div class="value-grid">
+      <div class="value rv"><span class="zh">安心</span><p>實名＋良民證＋實作考核三道關卡，每單投保，緊急送醫綠色通道。</p></div>
+      <div class="value rv"><span class="zh">品質</span><p>標準化照護流程逐項執行，雙向評價把關，金牌保母 4.8★ 起跳。</p></div>
+      <div class="value rv"><span class="zh">即時</span><p>方圓 3 公里智慧媒合，狀況即刻通知——牠的事，你永遠第一個知道。</p></div>
+      <div class="value rv"><span class="zh">透明</span><p>全品項牌價公開，加價提前 14 天公告，服務全程影像可查。</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="family-band">
+  <div class="wrap">
+    <span class="paw rv">🐾</span>
+    <h2 class="rv">牠陪你長大、陪你變老，<br>我們陪牠等你回家。</h2>
+    <p class="rv">把牠交給我們的每一個小時，都會被溫柔以待——因為在爪爪日常，「家人」不是口號，是每一次服務的驗收標準。</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="rv" style="margin-bottom:40px">
+      <p class="eyebrow">How We Deliver</p>
+      <h2 class="sec-title">這些承諾，怎麼兌現</h2>
+      <p class="sec-lead">每一句相信的背後，都有一套做法。細節都寫在常見問題裡，沒有藏在小字。</p>
+    </div>
+    <div class="hows">
+      <div class="how rv"><span class="glyph">🛡️</span><div><h3>三道關卡的保母審查</h3><p>實名認證＋良民證、專業資格或平台培訓、模擬照護實作考核——通過才能接單。</p><a href="index.html#faq">看保母怎麼篩選 →</a></div></div>
+      <div class="how rv"><span class="glyph">📱</span><div><h3>全程看得到的照護</h3><p>GPS 打卡、逐項拍照、散步軌跡即時回傳，攝影機免費租借，影像事後歸你。</p><a href="index.html#app">看智慧連線 →</a></div></div>
+      <div class="how rv"><span class="glyph">🏥</span><div><h3>出事有人扛的保障</h3><p>每單投保財損與責任險，24 小時合作醫院綠色通道，醫療費平台先墊。</p><a href="index.html#faq">看保障怎麼運作 →</a></div></div>
+      <div class="how rv"><span class="glyph">💰</span><div><h3>不玩文字遊戲的價格</h3><p>貓咪照護 $400 起、犬隻散步依體型三級距，全品項公開，絕不臨時漲價。</p><a href="index.html#tiers">看公開價目表 →</a></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="about-cta">
+  <div class="wrap">
+    <h2 class="rv">認識了我們，<br>接下來換我們認識牠。</h2>
+    <p class="rv">五分鐘的寵物檔案，是我們把牠當家人照顧的第一步。</p>
+    <a class="btn btn-primary rv" href="pet-intake.html" style="font-size:16px;padding:18px 44px">開始建立寵物檔案 →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <span>© 2026 爪爪日常 Pawfect Life（原型示意）</span>
+    <div class="foot-links">
+      <a href="index.html">首頁</a>
+      <a href="index.html#tiers">價目表</a>
+      <a href="index.html#faq">常見問題</a>
+      <a href="pet-intake.html">寵物檔案</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
