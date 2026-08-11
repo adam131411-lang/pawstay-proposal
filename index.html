@@ -337,18 +337,19 @@ details.qa{border-bottom:1px dashed var(--hairline)}
 .qa-table th{background:var(--wood-mist);color:var(--ink);font-weight:500}
 .cmp-block{margin-bottom:56px}
 .cmp-scroll{overflow-x:auto;border:1px solid var(--hairline);border-radius:18px}
-.cmp-table{width:100%;min-width:760px;border-collapse:collapse;font-size:15.5px;background:var(--paper)}
+.cmp-table{width:100%;min-width:920px;border-collapse:collapse;font-size:15.5px;background:var(--paper)}
 .cmp-table th,.cmp-table td{padding:17px 20px;border-bottom:1px solid var(--hairline);text-align:left;vertical-align:top;line-height:1.75}
 .cmp-table tr:last-child td{border-bottom:none}
 .cmp-table thead th{background:var(--wood-mist);font-weight:600;font-size:16px;white-space:nowrap}
-.cmp-table thead th:nth-child(3){background:#F3D9A2;border-top:3px solid var(--wood)}
+.cmp-table thead th:nth-child(4){background:#F3D9A2;border-top:3px solid var(--wood)}
 .cmp-table td:first-child{font-weight:600;white-space:nowrap;color:var(--wood-deep);font-size:15px}
 .cmp-table td.ours{background:rgba(232,162,78,.13);color:var(--ink);font-weight:500}
 .cmp-table td.theirs{color:var(--ink-soft)}
 .cmp-table .mk{display:inline-block;margin-right:9px;font-weight:700}
-.cmp-table td.ours .mk{color:#3A7D44}
-.cmp-table td.theirs .mk{color:#B2492C;opacity:.75}
-.cmp-table td.theirs .mk.neutral{color:var(--ink-soft);opacity:.8}
+.cmp-table td.f{color:var(--ink-soft)}
+.cmp-table .mk.good{color:#3A7D44;opacity:1}
+.cmp-table .mk.bad{color:#B2492C;opacity:.75}
+.cmp-table .mk.mid{color:var(--ink-soft);opacity:.85}
 .cmp-sum{margin-top:20px;text-align:center;font-size:17px;color:var(--ink-soft)}
 .cmp-sum b{color:var(--ink);background:linear-gradient(transparent 52%,#F6D293 52%);padding:0 3px}
 
@@ -746,24 +747,26 @@ footer{border-top:1px solid var(--hairline);background:var(--paper-deep);padding
     </div>
 
     <div class="cmp-block rv">
-      <h3 class="faq-cat-title">到府照護和寵物旅館，差在哪？</h3>
+      <h3 class="faq-cat-title">和寵物旅館、其他到府平台，差在哪？</h3>
       <div class="cmp-scroll">
         <table class="cmp-table">
-          <thead><tr><th>比較項目</th><th>🏨 傳統寵物旅館</th><th>🐾 爪爪日常到府照護</th></tr></thead>
+          <thead><tr><th>比較項目</th><th>🏨 傳統寵物旅館</th><th>📱 F 公司（同類平台）</th><th>🐾 爪爪日常</th></tr></thead>
           <tbody>
-            <tr><td>照護環境</td><td class="theirs"><span class="mk">✕</span>進籠舍住陌生環境，一切重新適應</td><td class="ours"><span class="mk">✓</span>牠留在自己家，睡自己的窩、作息一分不變</td></tr>
-            <tr><td>環境壓力</td><td class="theirs"><span class="mk">✕</span>分離焦慮與緊迫應激的高風險</td><td class="ours"><span class="mk">✓</span>零轉換壓力——敏感、高齡毛孩也能安心</td></tr>
-            <tr><td>交叉感染</td><td class="theirs"><span class="mk">✕</span>多寵共處，寄生蟲與傳染病風險高</td><td class="ours"><span class="mk">✓</span>一對一單獨照護，零接觸其他動物</td></tr>
-            <tr><td>照護透明度</td><td class="theirs"><span class="mk">✕</span>送進去像黑箱，狀況多半事後才知道</td><td class="ours"><span class="mk">✓</span>GPS＋照片影像即時回報，打開手機隨時看</td></tr>
-            <tr><td>接送奔波</td><td class="theirs"><span class="mk">✕</span>來回接送，連假塞車更折騰</td><td class="ours"><span class="mk">✓</span>保母上門，你一趟都不用跑</td></tr>
-            <tr><td>價格</td><td class="theirs"><span class="mk">✕</span>價格常不透明，結帳才知道多少錢</td><td class="ours"><span class="mk">✓</span>全品項牌價公開，單次 $400 起</td></tr>
-            <tr><td>假期供給</td><td class="theirs"><span class="mk">✕</span>年節坐地起價、爆滿拒收時有所聞</td><td class="ours"><span class="mk">✓</span>加價提前 14 天公告，年度會員連假免加價</td></tr>
-            <tr><td>客製化</td><td class="theirs"><span class="mk">✕</span>統一作息、集中管理</td><td class="ours"><span class="mk">✓</span>照牠的習慣餵食、用藥、陪玩——像你在家一樣</td></tr>
-            <tr><td>適合情境</td><td class="theirs"><span class="mk neutral">○</span>需 24 小時人員在場的特殊狀況</td><td class="ours"><span class="mk">✓</span>高齡、慢性病、敏感型寵物；多貓家庭；短中期外出</td></tr>
+            <tr><td>照護環境</td><td class="theirs"><span class="mk bad">✕</span>進籠舍住陌生環境，一切重新適應</td><td class="f"><span class="mk mid">○</span>到府為主，另推保母家寄宿——寄宿仍須離家適應</td><td class="ours"><span class="mk good">✓</span>只做到府：牠留在自己家，作息一分不變</td></tr>
+            <tr><td>價格</td><td class="theirs"><span class="mk bad">✕</span>價格常不透明，結帳才知道多少錢</td><td class="f"><span class="mk bad">✕</span>各保母自訂價（$300–400 起／30 分不等），需逐一比價</td><td class="ours"><span class="mk good">✓</span>全平台統一牌價公開，$400／次，不用比價不怕踩雷</td></tr>
+            <tr><td>保母審查</td><td class="theirs"><span class="mk bad">✕</span>員工制，審查標準不對外公開</td><td class="f"><span class="mk mid">○</span>實名認證必須；良民證採自願提供</td><td class="ours"><span class="mk good">✓</span>實名＋良民證強制＋實作考核，三關全過才能接單</td></tr>
+            <tr><td>假期供給</td><td class="theirs"><span class="mk bad">✕</span>年節坐地起價、爆滿拒收時有所聞</td><td class="f"><span class="mk bad">✕</span>連假檔期與價格由各保母自行決定</td><td class="ours"><span class="mk good">✓</span>加價提前 14 天公告，年度會員連假免加價</td></tr>
+            <tr><td>散步安全</td><td class="theirs"><span class="mk bad">✕</span>集中放風為主，少有一對一散步</td><td class="f"><span class="mk mid">○</span>一位保母可同時帶 1–5 隻</td><td class="ours"><span class="mk good">✓</span>至多 2 隻＋防掙脫雙扣胸背＋全程 GPS</td></tr>
+            <tr><td>保險保障</td><td class="theirs"><span class="mk bad">✕</span>多數無明確保險機制</td><td class="f"><span class="mk mid">○</span>平台投保，最高理賠 $200 萬</td><td class="ours"><span class="mk good">✓</span>每單投保，責任保障 $300 萬；年度會員再 +$50 萬</td></tr>
+            <tr><td>緊急應變</td><td class="theirs"><span class="mk mid">○</span>依各館內部規定</td><td class="f"><span class="mk mid">○</span>未見公開的統一送醫機制</td><td class="ours"><span class="mk good">✓</span>24 小時合作醫院綠色通道，醫療費平台先墊</td></tr>
+            <tr><td>照護透明度</td><td class="theirs"><span class="mk bad">✕</span>送進去像黑箱，狀況多半事後才知道</td><td class="f"><span class="mk mid">○</span>攝影回報；攝影機為出借選項</td><td class="ours"><span class="mk good">✓</span>GPS 打卡＋逐項拍照＋攝影機免費租借，影像事後歸你</td></tr>
+            <tr><td>交叉感染</td><td class="theirs"><span class="mk bad">✕</span>多寵共處，寄生蟲與傳染病風險高</td><td class="f"><span class="mk mid">○</span>到府 1 對 1；寄宿則與保母家動物共處</td><td class="ours"><span class="mk good">✓</span>一律單獨照護，零接觸其他動物</td></tr>
+            <tr><td>客製化</td><td class="theirs"><span class="mk bad">✕</span>統一作息、集中管理</td><td class="f"><span class="mk good">✓</span>可與保母個別溝通客製</td><td class="ours"><span class="mk good">✓</span>寵物檔案＋個性配對，照牠的習慣餵食、用藥、陪玩</td></tr>
+            <tr><td>適合情境</td><td class="theirs"><span class="mk mid">○</span>需 24 小時人員在場的特殊狀況</td><td class="f"><span class="mk mid">○</span>想自行比價挑保母、需要寄宿方案時</td><td class="ours"><span class="mk good">✓</span>要「標準一致、價格透明、保障寫死」的安心到府照護</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="cmp-sum">旅館是把寵物送去適應環境，<b>我們是讓照護來適應寵物</b>。</p>
+      <p class="cmp-sum">旅館是把寵物送去適應環境，<b>我們是讓照護來適應寵物</b>；<br>同樣做到府，別人把選擇留給你賭，<b>我們把承諾寫死給你看</b>。</p>
     </div>
 
     <div class="faq-cat rv">
