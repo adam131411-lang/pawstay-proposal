@@ -39,7 +39,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(251,247,239,
 .nav-right{display:flex;align-items:center;gap:22px;font-size:14px;letter-spacing:.08em}
 .nav-right a{color:var(--ink-soft)}
 .nav-right a:hover{color:var(--wood-deep)}
-.btn{display:inline-flex;align-items:center;gap:10px;font-weight:500;font-size:15px;letter-spacing:.06em;padding:15px 32px;border-radius:999px;cursor:pointer;border:1px solid transparent;transition:all .25s}
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:500;font-size:16px;letter-spacing:.06em;padding:15px 32px;border-radius:999px;cursor:pointer;border:1px solid transparent;transition:all .25s}
 .btn-primary{background:var(--clay);color:#FDF9F3;box-shadow:0 10px 24px -12px rgba(143,85,16,.5)}
 .btn-primary:hover{background:var(--clay-deep);transform:translateY(-2px)}
 .btn-ghost{border-color:var(--wood);color:var(--wood-deep)}
@@ -47,7 +47,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(251,247,239,
 .nav-cta{font-size:13.5px;padding:10px 22px}
 @media(max-width:520px){.logo{font-size:17px}.logo em{display:none}.nav-right a.link{display:none}.nav-cta{font-size:12.5px;padding:9px 16px}}
 
-.eyebrow{font-family:var(--serif);font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--wood-deep);display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.eyebrow{font-family:var(--serif);font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:var(--wood-deep);display:flex;align-items:center;gap:14px;margin-bottom:22px}
 .eyebrow::before{content:"";width:34px;height:1px;background:var(--wood)}
 .eyebrow.center{justify-content:center}
 .eyebrow.center::before{display:none}
@@ -65,9 +65,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(251,247,239,
   -webkit-mask-image:linear-gradient(180deg,#000 55%,transparent);
   mask-image:linear-gradient(180deg,#000 55%,transparent);
 }
-.about-hero h1{font-size:clamp(36px,6vw,60px);margin-bottom:26px}
+.about-hero h1{font-size:clamp(40px,6.5vw,66px);margin-bottom:26px}
 .about-hero h1 .accent{color:var(--wood-deep);font-style:italic}
-.about-hero p{color:var(--ink-soft);font-size:17px;max-width:32em;margin:0 auto}
+.about-hero p{color:var(--ink-soft);font-size:18.5px;max-width:32em;margin:0 auto}
 .spark{position:absolute;color:var(--wood);line-height:1;animation:twinkle 2.6s ease-in-out infinite}
 .spark.s1{top:130px;left:12%;font-size:30px;transform:rotate(-10deg)}
 .spark.s2{top:220px;right:10%;font-size:20px;color:#F2BE6C;animation-delay:.9s}
@@ -75,13 +75,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(251,247,239,
 @media (prefers-reduced-motion:reduce){.spark{animation:none}}
 
 section{padding:clamp(60px,8vw,100px) 0}
-.sec-title{font-size:clamp(25px,3.2vw,36px);margin-bottom:16px}
-.sec-lead{color:var(--ink-soft);font-size:15.5px;max-width:36em}
+.sec-title{font-size:clamp(29px,3.6vw,42px);margin-bottom:16px}
+.sec-lead{color:var(--ink-soft);font-size:17px;max-width:36em}
 
 /* 品牌初衷 */
 .story{background:var(--paper-card);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
 .story-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(30px,5vw,70px);align-items:center}
-.story p{color:var(--ink-soft);font-size:15.5px}
+.story p{color:var(--ink-soft);font-size:17px}
 .story p+p{margin-top:16px}
 .story p b{color:var(--ink);font-weight:500}
 .story-photo{border-radius:24px;overflow:hidden;border:1px solid var(--hairline)}
@@ -92,31 +92,31 @@ section{padding:clamp(60px,8vw,100px) 0}
 .beliefs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;counter-reset:bf}
 .belief{background:var(--paper-card);border:1px solid var(--hairline);border-radius:22px;padding:36px 30px;counter-increment:bf;position:relative}
 .belief::before{content:"0" counter(bf);font-family:var(--serif);font-size:40px;font-weight:300;color:var(--wood-mist);position:absolute;top:20px;right:24px;line-height:1}
-.belief h3{font-size:18.5px;margin-bottom:10px;max-width:9em}
-.belief p{font-size:14px;color:var(--ink-soft)}
+.belief h3{font-size:21px;margin-bottom:10px;max-width:9em}
+.belief p{font-size:15.5px;color:var(--ink-soft)}
 @media(max-width:820px){.beliefs{grid-template-columns:1fr}}
 
 /* 四個核心價值 */
 .values{background:var(--paper-deep);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
 .value-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 .value{background:var(--paper-card);border:1px solid var(--hairline);border-radius:20px;padding:30px 24px;text-align:center}
-.value .zh{font-family:var(--serif);font-size:26px;color:var(--wood-deep);display:block;margin-bottom:8px}
-.value p{font-size:13px;color:var(--ink-soft);line-height:1.8}
+.value .zh{font-family:var(--serif);font-size:30px;color:var(--wood-deep);display:block;margin-bottom:8px}
+.value p{font-size:14.5px;color:var(--ink-soft);line-height:1.8}
 @media(max-width:820px){.value-grid{grid-template-columns:repeat(2,1fr)}}
 
 /* 家人標準帶 */
 .family-band{text-align:center;padding:clamp(70px,9vw,110px) 0;background:linear-gradient(170deg,#F7C271 0%,#E8A24E 100%)}
-.family-band h2{font-size:clamp(26px,4vw,42px);color:#4A3018;margin-bottom:14px}
-.family-band p{color:#6B4A1E;font-size:16px;max-width:30em;margin:0 auto}
+.family-band h2{font-size:clamp(29px,4.4vw,46px);color:#4A3018;margin-bottom:14px}
+.family-band p{color:#6B4A1E;font-size:17.5px;max-width:30em;margin:0 auto}
 .family-band .paw{font-size:22px;margin-bottom:18px;display:block}
 
 /* 怎麼做到 */
 .hows{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 .how{background:var(--paper-card);border:1px solid var(--hairline);border-radius:20px;padding:30px 28px;display:flex;gap:18px;align-items:flex-start}
 .how .glyph{font-size:24px;line-height:1.4}
-.how h3{font-size:16.5px;margin-bottom:6px}
-.how p{font-size:13.5px;color:var(--ink-soft)}
-.how a{color:var(--wood-deep);border-bottom:1px solid var(--wood);font-size:13px}
+.how h3{font-size:18.5px;margin-bottom:6px}
+.how p{font-size:15px;color:var(--ink-soft)}
+.how a{color:var(--wood-deep);border-bottom:1px solid var(--wood);font-size:14px}
 @media(max-width:720px){.hows{grid-template-columns:1fr}}
 
 /* CTA */
@@ -124,7 +124,7 @@ section{padding:clamp(60px,8vw,100px) 0}
 .about-cta h2{font-size:clamp(26px,4vw,40px);margin-bottom:14px}
 .about-cta p{color:var(--ink-soft);margin-bottom:34px}
 
-footer{border-top:1px solid var(--hairline);background:var(--paper-deep);padding:36px 0;font-size:13px;color:var(--ink-soft)}
+footer{border-top:1px solid var(--hairline);background:var(--paper-deep);padding:36px 0;font-size:14px;color:var(--ink-soft)}
 .foot-inner{max-width:980px;margin:0 auto;padding:0 clamp(20px,5vw,48px);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;align-items:center}
 .foot-links{display:flex;gap:22px;flex-wrap:wrap}
 .foot-links a:hover{color:var(--wood-deep)}
