@@ -157,6 +157,45 @@ nav{
 section{padding:clamp(72px,10vw,120px) 0}
 .sec-head{margin-bottom:clamp(40px,6vw,64px)}
 
+/* service picker */
+.svc-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:22px}
+.svc-tile{
+  display:flex;align-items:center;gap:14px;text-align:left;
+  background:var(--paper-card);border:1.5px solid var(--hairline);border-radius:18px;
+  padding:18px 20px;cursor:pointer;font-family:var(--sans);transition:all .22s;
+}
+.svc-tile:hover{border-color:var(--wood);transform:translateY(-2px)}
+.svc-tile.on{background:var(--wood-mist);border-color:var(--wood-deep);box-shadow:0 10px 24px -16px rgba(163,98,29,.5)}
+.svc-tile .ic{height:34px;width:44px;object-fit:contain;flex-shrink:0}
+.svc-tile .ic-emoji{font-size:28px;width:44px;text-align:center;flex-shrink:0;line-height:1}
+.svc-tile .t-name{font-weight:700;font-size:16.5px;color:var(--ink);display:block;line-height:1.4}
+.svc-tile .t-price{font-size:13.5px;color:var(--wood-deep);font-weight:500}
+.svc-detail{
+  display:none;position:relative;
+  background:var(--paper-card);border:1.5px solid var(--wood);border-radius:24px;
+  padding:clamp(26px,4vw,40px);grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
+  gap:clamp(22px,4vw,44px);animation:svcIn .35s ease;
+}
+.svc-detail.open{display:grid}
+.svc-close{position:absolute;top:16px;right:20px;background:none;border:none;font-size:22px;color:var(--ink-soft);cursor:pointer;line-height:1;padding:6px}
+.svc-close:hover{color:var(--wood-deep)}
+@keyframes svcIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.svc-detail h3{font-size:24px;margin-bottom:4px}
+.svc-detail .d-fit{font-size:14.5px;color:var(--wood-deep);margin-bottom:16px}
+.svc-detail ul{list-style:none}
+.svc-detail li{padding:8px 0;font-size:15.5px;color:var(--ink-soft);border-bottom:1px dashed var(--hairline);display:flex;gap:10px}
+.svc-detail li::before{content:"✓";color:#3A7D44;font-weight:700}
+.svc-detail .d-note{font-size:13px;color:var(--ink-soft);margin-top:12px}
+.svc-side{display:flex;flex-direction:column;justify-content:center;gap:6px;border-left:1px dashed var(--hairline);padding-left:clamp(20px,3vw,40px)}
+.svc-side .d-price{font-family:var(--serif);font-size:40px;color:var(--ink);line-height:1.2}
+.svc-side .d-price small{font-size:15px;font-family:var(--sans);color:var(--ink-soft)}
+.svc-side .d-rule{font-size:14px;color:var(--ink-soft);margin-bottom:18px;line-height:1.9}
+.svc-side .btn{justify-content:center}
+.svc-side .d-more{text-align:center;font-size:14px;margin-top:12px}
+.svc-side .d-more a{color:var(--wood-deep);border-bottom:1px solid var(--wood)}
+@media(max-width:920px){.svc-tiles{grid-template-columns:repeat(2,1fr)}.svc-detail{grid-template-columns:1fr}.svc-side{border-left:none;border-top:1px dashed var(--hairline);padding-left:0;padding-top:22px}}
+@media(max-width:520px){.svc-tiles{grid-template-columns:1fr}}
+
 /* species cards */
 .species-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .species-card{
@@ -444,34 +483,23 @@ footer{border-top:1px solid var(--hairline);background:var(--paper-deep);padding
   </div>
 </div>
 
-<!-- ③ SPECIES -->
+<!-- ③ SERVICE PICKER -->
 <section id="services">
   <div class="wrap">
     <div class="sec-head rv">
-      <p class="eyebrow">Who We Care For</p>
-      <h2 class="sec-title">三種家人，三種照顧方式</h2>
-      <p class="sec-lead">貓有貓的節奏，狗有狗的精力，異寵有牠的物種習性。我們不套用同一套流程——照顧計畫從牠是誰開始。</p>
+      <p class="eyebrow">Pick Your Care</p>
+      <h2 class="sec-title">今天，需要哪一種照顧？</h2>
+      <p class="sec-lead">點選服務，細節與價格就在裡面——看完再決定，不催你。</p>
     </div>
-    <div class="species-grid">
-      <a class="species-card rv" href="#tiers">
-        <img class="glyph" src="assets/species/cat.png?v=4" alt="貓咪線稿插畫">
-        <h3>貓咪照顧</h3>
-        <p>不打擾的溫柔——在牠最安心的領地照顧牠。餵食、清砂、陪玩與觀察，離開前把一切歸位。</p>
-        <span class="more">了解貓咪服務 →</span>
-      </a>
-      <a class="species-card rv" href="#tiers">
-        <img class="glyph" src="assets/species/dog.png?v=4" alt="狗狗線稿插畫">
-        <h3>狗狗照顧與散步</h3>
-        <p>散步、陪玩、規律作息，精力與情緒都被接住。外出全程 GPS 軌跡，你隨時知道牠走到哪。</p>
-        <span class="more">了解狗狗服務 →</span>
-      </a>
-      <a class="species-card rv" href="#tiers">
-        <img class="glyph" src="assets/species/exotic.png?v=4" alt="鳥類線稿插畫">
-        <h3>特殊寵物照顧</h3>
-        <p>兔、鼠、鳥、爬蟲——溫溼度、飲食與環境細節，照著牠的物種習性來（服務規劃中，採客製詢價）。</p>
-        <span class="more">客製詢價 →</span>
-      </a>
+    <div class="svc-tiles rv" id="svcTiles">
+      <button class="svc-tile" data-svc="cat"><img class="ic" src="assets/species/cat.png?v=4" alt=""><span><span class="t-name">貓咪到府照護</span><span class="t-price">$400／次（30 分）</span></span></button>
+      <button class="svc-tile" data-svc="dog"><img class="ic" src="assets/species/dog.png?v=4" alt=""><span><span class="t-name">狗狗散步陪玩</span><span class="t-price">$600 起／小時</span></span></button>
+      <button class="svc-tile" data-svc="med"><span class="ic-emoji">💊</span><span><span class="t-name">醫療照顧加值</span><span class="t-price">+$50 起／次</span></span></button>
+      <button class="svc-tile" data-svc="pack"><span class="ic-emoji">🧳</span><span><span class="t-name">長假七日套票</span><span class="t-price">$2,520 起／7 日</span></span></button>
+      <button class="svc-tile" data-svc="life"><span class="ic-emoji">🚗</span><span><span class="t-name">接送與生活支援</span><span class="t-price">$100 起</span></span></button>
+      <button class="svc-tile" data-svc="exotic"><img class="ic" src="assets/species/exotic.png?v=4" alt=""><span><span class="t-name">特殊寵物照護</span><span class="t-price">客製詢價</span></span></button>
     </div>
+    <div class="svc-detail rv" id="svcDetail"></div>
   </div>
 </section>
 
@@ -884,6 +912,53 @@ const io = new IntersectionObserver(es=>{
   es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
 },{threshold:.12});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+const SVC={
+ cat:{name:"喵皇居家無憂照護",fit:"適合：加班、出差、旅行時的日常留守",
+  inc:["清洗食盆・更換新鮮飼料與飲水","清理貓砂盆並記錄排泄狀況","陪玩與梳毛，照牠的節奏來","照片＋狀態即時回報"],
+  price:"$400",unit:"／次（30 分鐘）",rule:"多貓家庭每加一隻 +$100／次。<br>價格全平台統一，無隱藏費用。",
+  cta:"預約貓咪照護",link:"pet-intake.html?service=cat",note:""},
+ dog:{name:"汪汪活力放電散步",fit:"適合：精力旺盛、需要定時出門如廁的狗狗",
+  inc:["防掙脫雙扣牽繩，安全散步放電","清理排泄・擦腳進屋・補充飲水","全程 GPS 軌跡＋照片回報","基本 1 小時，可半小時累加"],
+  price:"$600",unit:"起／小時",rule:"小型犬（&lt;15kg）$600・中大型（15–30kg）$700・超大型（&gt;30kg）$800；第二隻同行 +$200／時（至多 2 隻）。",
+  cta:"預約狗狗散步",link:"pet-intake.html?service=dog",note:"具攻擊紀錄犬隻不承接——安全優先於營收。"},
+ med:{name:"醫療照顧加值",fit:"適合：慢性病、高齡、術後恢復中的孩子",
+  inc:["口服餵藥・點眼藥・擦藥","皮下輸液（限醫療級保母＋獸醫書面指示）","高齡陪伴與術後狀態觀察","異常即啟動緊急送醫綠色通道"],
+  price:"+$50",unit:"起／次",rule:"餵藥點眼 $50–150、皮下輸液 $150–250（依體型分級），附加於任一訂單。",
+  cta:"預約醫療照護",link:"pet-intake.html?service=med",note:"我們不做診斷——診療需求一律轉介特約動物醫院。"},
+ pack:{name:"長假無憂七日套票",fit:"適合：出國、春節連假的長期留守",
+  inc:["每日定時到府，作息不亂","餵食、清理、陪伴／散步全包","照顧日誌天天回報，遠方也安心","剩餘場次可免費順延一次"],
+  price:"$2,520",unit:"起／7 日",rule:"貓咪一日一訪 $2,520（原價 $2,800）；狗狗一日兩訪 $5,670（小型犬價，中大型以上依級距另計）——皆為 9 折套票價。",
+  cta:"預約七日套票",link:"pet-intake.html?service=pack",note:""},
+ life:{name:"接送與生活支援",fit:"適合：要去醫院、沒空補貨的忙碌時刻",
+  inc:["寵物接送（依距離×體型計費）","陪同就醫含等候 $500／時","用品代購跑腿 $100（實付代墊）","居家順手服務 +$50（澆花收信倒垃圾）"],
+  price:"$100",unit:"起",rule:"接送 $100／km 起（依體型）；各品項可附加於任一訂單，牌價公開。",
+  cta:"加購諮詢",link:"pet-intake.html?service=life",note:""},
+ exotic:{name:"特殊寵物照護",fit:"適合：兔、鼠、鳥、爬蟲的異寵家庭",
+  inc:["照物種習性照顧，不憑感覺","溫溼度與籠舍環境管理","食性與作息客製安排","服務規劃中，開放登記詢價"],
+  price:"客製",unit:"詢價",rule:"異寵照護正在規劃中——留下需求，開放時第一個通知你。",
+  cta:"登記詢價",link:"pet-intake.html?service=exotic",note:""}
+};
+const svcDetail=document.getElementById('svcDetail');
+let svcOpen=null;
+function closeSvc(){
+  svcOpen=null;svcDetail.classList.remove('open');svcDetail.innerHTML='';
+  document.querySelectorAll('.svc-tile').forEach(t=>t.classList.remove('on'));
+}
+function renderSvc(k){
+  if(svcOpen===k){closeSvc();return;}
+  svcOpen=k;const d=SVC[k];
+  svcDetail.innerHTML=`<button class="svc-close" aria-label="收合">✕</button><div><h3>${d.name}</h3><p class="d-fit">${d.fit}</p><ul>${d.inc.map(i=>`<li>${i}</li>`).join('')}</ul>${d.note?`<p class="d-note">※ ${d.note}</p>`:''}</div>
+  <div class="svc-side"><div class="d-price">${d.price}<small>${d.unit}</small></div><p class="d-rule">${d.rule}</p><a class="btn btn-primary" href="${d.link}">${d.cta} →</a><p class="d-more"><a href="#tiers">看完整公開價目表 →</a></p></div>`;
+  svcDetail.classList.add('open');
+  svcDetail.style.animation='none';svcDetail.offsetHeight;svcDetail.style.animation='';
+  svcDetail.querySelector('.svc-close').addEventListener('click',closeSvc);
+  document.querySelectorAll('.svc-tile').forEach(t=>t.classList.toggle('on',t.dataset.svc===k));
+}
+document.getElementById('svcTiles').addEventListener('click',e=>{
+  const t=e.target.closest('.svc-tile');if(t)renderSvc(t.dataset.svc);
+});
+
 </script>
 </body>
 </html>
