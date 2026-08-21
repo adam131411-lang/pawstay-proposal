@@ -356,14 +356,15 @@ section{padding:clamp(72px,10vw,120px) 0}
 
 /* ---------- membership ---------- */
 .mem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:0 auto}
-.mem{border:1px solid var(--hairline);border-radius:24px;padding:40px 32px;background:var(--paper-card);position:relative}
+.mem{border:1px solid var(--hairline);border-radius:24px;padding:40px 32px;background:var(--paper-card);position:relative;display:flex;flex-direction:column}
 .mem.club{background:linear-gradient(165deg,#FFFDF8 0%,#F8E9CF 100%);border-color:var(--wood)}
 .mem.annual{background:linear-gradient(165deg,#FFFDF8 0%,#FBEED3 100%);border-color:var(--clay)}
 .mem .best{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--clay);color:#FDF9F3;font-size:11.5px;letter-spacing:.2em;padding:5px 16px;border-radius:999px;white-space:nowrap}
 .mem .kind{font-size:12px;letter-spacing:.28em;color:var(--wood-deep);font-family:var(--serif);margin-bottom:8px}
 .mem h3{font-size:25px;margin-bottom:4px}
 .mem .fee{font-size:15px;color:var(--ink-soft);margin-bottom:22px}
-.mem ul{list-style:none;margin-bottom:28px}
+.mem ul{list-style:none;margin-bottom:28px;flex:1}
+.mem .btn{margin-top:auto}
 .mem li{padding:9px 0;font-size:15.5px;display:flex;gap:10px;border-bottom:1px dashed var(--hairline)}
 .mem li::before{content:"○";color:var(--wood);font-size:11px;line-height:2.1}
 .mem.club li::before{content:"●"}
