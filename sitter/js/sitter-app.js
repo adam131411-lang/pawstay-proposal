@@ -84,9 +84,11 @@ function renderHall() {
         <img src="${speciesImg(j.pet.species)}" alt="" style="width:18px;vertical-align:-4px"> ${esc(j.pet.name)}（${esc(j.pet.breed)}・${esc(j.pet.age)}）
         ・${fmtDate(resolveDate(j.slot.date))} ${j.slot.time}・${j.slot.dur}<br>
         📍 ${esc(j.owner_area)}・距你 ${j.dist_km} km</div>
-      <div class="jc-pay"><span class="muted">訂單額 ${fmtMoney(amt)} →</span>
-        <span class="price">你的分潤 ${fmtMoney(payout(amt))}</span><span class="muted">（75%）</span>
-        ${locked ? '<span class="chip no" style="margin-left:auto">🔒 需醫療級認證</span>' : ''}</div>
+      <div class="pay-box">
+        <div class="pb-label">你的分潤（60%）</div>
+        <div class="pb-amt">${fmtMoney(payout(amt))}</div>
+        <div class="pb-sub">訂單額 ${fmtMoney(amt)}・平台服務費 40%${locked ? '・🔒 需醫療級認證' : ''}</div>
+      </div>
     </div>`;
   }).join('') : '';
   return `${apphead('自由接單・透明分潤')}
@@ -128,8 +130,8 @@ function openJobSheet(id) {
     <div class="card" style="margin-top:10px">
       ${q.lines.map(l => `<div class="quote-line"><span class="q-label">${l.label}</span><span class="${l.cls || ''}">${l.amount < 0 ? '−' : ''}${fmtMoney(Math.abs(l.amount))}</span></div>`).join('')}
       <div class="quote-line"><span class="q-label">訂單額</span><span>${fmtMoney(amt)}</span></div>
-      <div class="quote-line"><span class="q-label">平台服務費 25%</span><span class="plus">−${fmtMoney(platformFee(amt))}</span></div>
-      <div class="quote-line total"><span>你的分潤（75%）</span><span class="price">${fmtMoney(payout(amt))}</span></div></div>
+      <div class="quote-line"><span class="q-label">平台服務費 40%</span><span class="plus">−${fmtMoney(platformFee(amt))}</span></div>
+      <div class="quote-line total"><span>你的分潤（60%）</span><span class="price">${fmtMoney(payout(amt))}</span></div></div>
     ${locked ? `<div class="result-box" style="margin-top:12px"><b>🔒 此單含「皮下輸液」，僅醫療級保母可接。</b>
         <div class="muted" style="margin-top:4px">完成醫療照護培訓＋考核即可解鎖此類訂單（含輸液加值分潤）。</div>
         <button class="btn btn-soft btn-sm" style="margin-top:10px" data-action="goto-training">查看醫療級培訓 →</button></div>
@@ -164,7 +166,10 @@ function renderShift() {
       <div class="jc-top"><span class="jc-svc">${esc(j.service_name)}</span>
         ${j.status === 'active' ? '<span class="chip dark">進行中</span>' : '<span class="chip ok">已接單</span>'}</div>
       <div class="jc-meta">${j.slot.time}・${j.slot.dur}・${esc(j.pet.name)}・📍 ${esc(j.owner_area)}</div>
-      <div class="jc-pay"><span class="price">${fmtMoney(payout(amt))}</span><span class="muted">（75% 分潤）</span></div></div>`;
+      <div class="pay-box">
+        <div class="pb-label">你的分潤（60%）</div>
+        <div class="pb-amt">${fmtMoney(payout(amt))}</div>
+      </div></div>`;
   }).join('');
   return `${apphead('班表與任務')}
     <h1 class="pagetitle">我的班表</h1>
@@ -276,16 +281,16 @@ function renderIncome() {
       <div class="oc-top" style="display:flex;gap:8px;align-items:center"><b>${esc(j.service_name)}</b>
         <span style="margin-left:auto" class="muted">${fmtDate(resolveDate(j.done_date))}</span></div>
       <div class="quote-line" style="padding-top:8px"><span class="q-label">訂單額</span><span>${fmtMoney(amt)}</span></div>
-      <div class="quote-line"><span class="q-label">平台服務費 25%</span><span class="plus">−${fmtMoney(platformFee(amt))}</span></div>
+      <div class="quote-line"><span class="q-label">平台服務費 40%</span><span class="plus">−${fmtMoney(platformFee(amt))}</span></div>
       <div class="quote-line total" style="font-size:.95rem"><span>實拿</span><span class="price">${fmtMoney(payout(amt))}</span></div></div>`).join('');
   return `${apphead('透明分潤')}
     <h1 class="pagetitle">收入</h1>
-    <p class="pagesub">每一單都看得到拆帳——平台 25%／你 75%，含所有動態加價。</p>
+    <p class="pagesub">每一單都看得到拆帳——平台 40%／你 60%，含所有動態加價。</p>
     <div class="income-hero">
       <div style="font-size:.78rem;opacity:.8">本月實拿（${dones.length} 單）</div>
       <div class="ih-num">${fmtMoney(totalPay)}</div>
       <div class="split-bar"><i class="mine"></i><i class="fee"></i></div>
-      <div class="split-legend"><span>你的 75%：${fmtMoney(totalPay)}</span><span>平台 25%：${fmtMoney(totalAmt - totalPay)}</span></div>
+      <div class="split-legend"><span>你的 60%：${fmtMoney(totalPay)}</span><span>平台 40%：${fmtMoney(totalAmt - totalPay)}</span></div>
       <div style="margin-top:12px;display:flex;gap:10px;align-items:center">
         <button class="btn btn-soft btn-sm" data-action="withdraw">提領・${esc(DB.me.payout_account)}</button></div></div>
     <div class="card" style="margin-top:12px"><b>🧾 課稅說明</b>
@@ -357,7 +362,7 @@ function sendMsg() {
 function openRights() {
   openSheet(`<h3>承攬權益重點（原型摘錄）</h3>
     <div class="card" style="margin-top:10px"><b>你的自由</b><p class="muted" style="margin-top:4px">完全自由上下線、可拒單；平台不得有任何強制接單懲罰。拒接不影響評分與媒合順位。</p></div>
-    <div class="card" style="margin-top:10px"><b>拆帳與稅務</b><p class="muted" style="margin-top:4px">平台 25%／保母 75%，動態加價（連假／夜間／跨區）全額計入分潤基礎。分潤屬課稅勞務報酬，平台開立扣繳憑單。</p></div>
+    <div class="card" style="margin-top:10px"><b>拆帳與稅務</b><p class="muted" style="margin-top:4px">平台 40%／保母 60%，動態加價（連假／夜間／跨區）全額計入分潤基礎。分潤屬課稅勞務報酬，平台開立扣繳憑單。</p></div>
     <div class="card" style="margin-top:10px"><b>你的義務</b><p class="muted" style="margin-top:4px">服務數位軌跡（GPS 打卡＋逐項拍照）為強制項；散步用平台配發防掙脫雙扣胸背帶、一人至多 2 隻；訂單外事項一律禁止；故意過失自負（承攬關係）。</p></div>
     <div class="card" style="margin-top:10px"><b>私下交易防制</b><p class="muted" style="margin-top:4px">站內對話有敏感詞偵測；私下交易將失去保險、送醫代墊、存證與回饋保障，嚴重者停權。</p></div>`);
 }

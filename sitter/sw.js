@@ -1,5 +1,5 @@
 /* 爪爪日常 保母端 PWA Service Worker — cache-first App Shell */
-const CACHE = 'pawfect-sitter-v1';
+const CACHE = 'pawfect-sitter-v2';
 const SHELL = [
   './', './index.html', './manifest.webmanifest',
   './css/app.css', './css/sitter.css', './js/sitter-data.js', './js/pricing.js', './js/sitter-app.js',

@@ -33,10 +33,10 @@ const PLANS = {
 };
 const HOLIDAYS = ['2026-09-25', '2026-09-26', '2026-09-27', '2026-09-28'];
 
-/* ---- 拆帳（§3.7）：平台 25%／保母 75%（課稅勞務報酬） ----
+/* ---- 拆帳（§3.7 修訂版）：平台 40%／保母 60%（課稅勞務報酬） ----
    原型假設：分潤基礎 = 訂單額（服務費＋加值＋動態加價），
    不含飼主端金流手續費與平台折價券（平台行銷成本，不影響保母分潤）。 */
-const SPLIT = 0.75;
+const SPLIT = 0.60;
 function payout(orderAmount) { return Math.round(orderAmount * SPLIT); }
 function platformFee(orderAmount) { return orderAmount - payout(orderAmount); }
 
