@@ -1,0 +1,16 @@
+{
+  "name": "爪爪日常 Pawfect Life",
+  "short_name": "爪爪日常",
+  "description": "到府寵物照護媒合平台——不出門的五星級照顧",
+  "lang": "zh-TW",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FBF7EF",
+  "theme_color": "#FBF7EF",
+  "icons": [
+    { "src": "assets/logo/app-icon.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "assets/logo/app-icon.png", "sizes": "192x192", "type": "image/png", "purpose": "any" }
+  ]
+}
