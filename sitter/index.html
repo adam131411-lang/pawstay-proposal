@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>爪爪日常 保母端 — Pawfect Sitter</title>
+<meta name="description" content="爪爪日常保母工作台——自由接單、透明分潤">
+<meta name="theme-color" content="#FBF7EF">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/logo/logo-square.png">
+<link rel="apple-touch-icon" href="assets/logo/app-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="爪爪保母端">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Noto+Serif+TC:wght@600;700;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/app.css">
+<link rel="stylesheet" href="css/sitter.css">
+</head>
+<body>
+<div id="phone">
+  <main id="view" tabindex="-1"></main>
+  <div id="sheet-root"></div>
+  <div id="toast-root" aria-live="polite"></div>
+  <nav id="tabbar" aria-label="主要導覽">
+    <button class="tab" data-tab="hall"><span class="tab-ico">📥</span><span>接單大廳</span></button>
+    <button class="tab" data-tab="shift"><span class="tab-ico">🗓</span><span>我的班表</span></button>
+    <button class="tab" data-tab="job"><span class="tab-ico">🐾</span><span>服務中</span></button>
+    <button class="tab" data-tab="income"><span class="tab-ico">💰</span><span>收入</span></button>
+    <button class="tab" data-tab="me"><span class="tab-ico">👤</span><span>我的</span></button>
+  </nav>
+</div>
+<script src="js/sitter-data.js"></script>
+<script src="js/pricing.js"></script>
+<script src="js/sitter-app.js"></script>
+</body>
+</html>

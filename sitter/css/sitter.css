@@ -1,0 +1,60 @@
+/* ============ 保母端追加樣式（疊在 app.css 上） ============ */
+/* 上線/下線大開關 */
+.online-card{display:flex; align-items:center; gap:14px; background:var(--paper-card);
+  border:1px solid var(--hairline); border-radius:var(--r-lg); padding:16px; box-shadow:var(--shadow)}
+.online-card .oc-txt{flex:1}
+.online-card .oc-state{font-family:var(--serif); font-weight:700; font-size:1.2rem}
+.switch{position:relative; width:64px; height:36px; border-radius:999px; border:none; cursor:pointer;
+  background:var(--hairline); transition:background .2s; flex:none}
+.switch::after{content:""; position:absolute; top:4px; left:4px; width:28px; height:28px; border-radius:50%;
+  background:#fff; box-shadow:0 2px 6px rgba(63,45,26,.3); transition:transform .2s}
+.switch.on{background:var(--ok)}
+.switch.on::after{transform:translateX(28px)}
+/* 訂單卡 */
+.job-card{border:1.5px solid var(--hairline); border-radius:var(--r-md); background:var(--paper-card);
+  padding:14px 16px; box-shadow:var(--shadow); cursor:pointer}
+.job-card + .job-card{margin-top:12px}
+.job-card.locked{opacity:.72; background:repeating-linear-gradient(-45deg,var(--paper-card) 0 12px,#F6EFE2 12px 24px)}
+.job-card .jc-top{display:flex; align-items:center; gap:8px; flex-wrap:wrap}
+.job-card .jc-svc{font-weight:900; font-size:.98rem}
+.job-card .jc-meta{color:var(--ink-soft); font-size:.8rem; margin-top:6px; line-height:1.6}
+.job-card .jc-pay{display:flex; align-items:baseline; gap:8px; margin-top:8px}
+.job-card .jc-pay .price{font-size:1.2rem; color:var(--wood-deep)}
+.badge-hot{background:rgba(178,73,44,.1); color:var(--no); font-weight:700}
+/* 收入 */
+.income-hero{background:linear-gradient(135deg,#342414,#5a4023); color:var(--paper);
+  border-radius:var(--r-lg); padding:20px; position:relative; overflow:hidden}
+.income-hero::after{content:"✦"; position:absolute; right:16px; top:12px; color:var(--wood); opacity:.7}
+.income-hero .ih-num{font-family:var(--serif); font-size:2rem; font-weight:700; color:var(--wood)}
+.split-bar{display:flex; height:14px; border-radius:999px; overflow:hidden; margin:12px 0 6px}
+.split-bar i{display:block}
+.split-bar .mine{background:var(--wood); flex:3}
+.split-bar .fee{background:rgba(251,247,239,.25); flex:1}
+.split-legend{display:flex; justify-content:space-between; font-size:.72rem; opacity:.85}
+/* 一次性密碼 */
+.otp-box{background:var(--dark); color:var(--wood); border-radius:var(--r-md); padding:16px; text-align:center}
+.otp-box .otp{font-family:var(--serif); font-size:2rem; letter-spacing:.35em; font-weight:700}
+.otp-box .otp-cd{font-size:.76rem; color:var(--paper); opacity:.8; margin-top:4px; font-variant-numeric:tabular-nums}
+/* 站內訊息 */
+.msg-thread{display:flex; flex-direction:column; gap:8px; margin:10px 0}
+.msg{max-width:80%; padding:10px 14px; border-radius:16px; font-size:.88rem; line-height:1.6}
+.msg.owner{background:#fff; border:1px solid var(--hairline); align-self:flex-start; border-bottom-left-radius:4px}
+.msg.mine{background:var(--wood-mist); color:var(--ink); align-self:flex-end; border-bottom-right-radius:4px}
+.msg-warn{background:rgba(178,73,44,.1); border:1px solid var(--no); color:var(--no);
+  border-radius:var(--r-sm); padding:10px 12px; font-size:.8rem; line-height:1.6}
+.msg-input{display:flex; gap:8px; margin-top:10px}
+.msg-input input{flex:1; font-family:var(--sans); font-size:.95rem; border:1px solid var(--hairline);
+  border-radius:999px; padding:11px 16px; background:#fff; color:var(--ink)}
+.msg-input input:focus{outline:2px solid var(--wood)}
+/* 審查進度 */
+.cert-steps{list-style:none}
+.cert-steps li{display:flex; gap:12px; padding:10px 0; align-items:center; border-bottom:1px solid var(--hairline)}
+.cert-steps li:last-child{border:none}
+/* 週曆帶 */
+.week-strip{display:flex; gap:8px; overflow-x:auto; padding-bottom:4px}
+.day-pill{min-width:52px; text-align:center; border:1.5px solid var(--hairline); border-radius:14px;
+  background:#fff; padding:10px 4px; cursor:pointer; font-family:var(--sans)}
+.day-pill .dp-dow{font-size:.66rem; color:var(--ink-soft)}
+.day-pill .dp-d{font-family:var(--serif); font-weight:700; font-size:1.1rem}
+.day-pill.selected{border-color:var(--clay); background:var(--wood-mist)}
+.day-pill .dp-dot{width:6px; height:6px; border-radius:50%; background:var(--clay); margin:3px auto 0}

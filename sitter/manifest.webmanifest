@@ -1,0 +1,16 @@
+{
+  "name": "爪爪日常 保母端 Pawfect Sitter",
+  "short_name": "爪爪保母端",
+  "description": "爪爪日常保母工作台——自由接單、透明分潤",
+  "lang": "zh-TW",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FBF7EF",
+  "theme_color": "#FBF7EF",
+  "icons": [
+    { "src": "assets/logo/app-icon.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "assets/logo/app-icon.png", "sizes": "192x192", "type": "image/png", "purpose": "any" }
+  ]
+}
