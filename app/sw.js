@@ -1,8 +1,8 @@
 /* 爪爪日常 PWA Service Worker — cache-first App Shell */
-const CACHE = 'pawfect-v2';
+const CACHE = 'pawfect-v4';
 const SHELL = [
   './', './index.html', './manifest.webmanifest',
-  './css/app.css', './js/data.js', './js/pricing.js', './js/app.js',
+  './css/app.css', './js/data.js', './js/pricing.js', './js/app.js', './js/chatbot.js',
   './assets/logo/logo.png', './assets/logo/app-icon.png', './assets/logo/logo-square.png',
   './assets/species/cat.png', './assets/species/dog.png', './assets/species/exotic.png',
   './assets/svc/svc-cat.jpg', './assets/svc/svc-dog.jpg', './assets/svc/svc-pack.jpg', './assets/svc/svc-exotic.jpg',
